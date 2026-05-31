@@ -12,55 +12,69 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
     body, table, td, p, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
     table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
-    img { border:0; outline:none; text-decoration:none; }
+    img { border:0; outline:none; text-decoration:none; display:block; }
+
     @media only screen and (max-width:600px) {
-      /* Wrapper */
       .email-body  { width:100% !important; max-width:100% !important; border-radius:0 !important; }
       .outer-pad   { padding:0 !important; }
 
-      /* Header */
-      .header-pad  { padding:14px 18px !important; }
+      /* Header — tira compacto */
+      .header-pad  { padding:8px 16px !important; }
+      .header-logo { width:48px !important; }
 
-      /* Hero: apila texto arriba, icono abajo a la derecha */
-      .hero-outer  { padding:20px 0 0 !important; }
-      .hero-text-td {
+      /* Hero — apila en columna */
+      .hero-outer    { padding:16px 0 0 !important; }
+      .hero-text-td  {
         display:block !important; width:100% !important;
-        box-sizing:border-box !important;
-        padding:20px 24px 8px !important;
+        padding:16px 20px 8px !important;
         text-align:center !important;
+        box-sizing:border-box !important;
       }
-      .hero-title       { font-size:26px !important; line-height:1.2 !important; }
-      .hero-title span  { font-size:24px !important; }
-      .hero-icon-td {
+      .hero-title      { font-size:24px !important; line-height:1.2 !important; }
+      .hero-title span { font-size:22px !important; }
+      .hero-icon-td  {
         display:block !important; width:100% !important;
-        text-align:right !important;
         padding:0 !important; line-height:0 !important;
+        text-align:right !important;
       }
-      .hero-icon-td img { width:160px !important; }
+      .hero-icon-td img { width:150px !important; max-width:150px !important; }
 
       /* Cuerpo */
-      .pad         { padding:28px 20px 32px !important; }
-      .body-title  { font-size:19px !important; }
+      .pad          { padding:32px 22px 36px !important; }
+      .body-label   { font-size:11px !important; }
+      .body-title   { font-size:21px !important; }
+      .bullet-title { font-size:16px !important; }
+      .bullet-desc  { font-size:14px !important; }
 
-      /* Botón CTA: ancho completo, fácil de pulsar */
-      .cta-table   { width:100% !important; }
-      .cta-td      {
+      /* CTA */
+      .cta-table { width:100% !important; }
+      .cta-td    {
         display:block !important; width:100% !important;
         border-radius:50px !important; text-align:center !important;
       }
-      .cta-td a    {
+      .cta-td a  {
         display:block !important; text-align:center !important;
-        padding:18px 24px !important; font-size:15px !important;
+        padding:18px 20px !important; font-size:16px !important;
         white-space:normal !important;
       }
 
+      /* Beneficios */
+      .benefits-pad { padding:28px 20px !important; }
+      .benefit-col  {
+        display:block !important; width:100% !important;
+        padding:0 0 20px !important; text-align:center !important;
+      }
+      .benefit-col:last-child { padding-bottom:0 !important; }
+      .benefit-num  { font-size:22px !important; }
+
       /* Footer */
-      .footer-pad  { padding:14px 18px !important; }
+      .footer-pad  { padding:14px 16px !important; }
+      .footer-logo { width:60px !important; }
       .footer-copy { font-size:10px !important; }
     }
   </style>
 </head>
-<body style="margin:0;padding:0;background:#f0ebe1;font-family:'Inter',Arial,sans-serif;-webkit-text-size-adjust:none;width:100%;">
+<body style="margin:0;padding:0;background:#f0ebe1;font-family:'Inter',Arial,sans-serif;">
 
   <div style="display:none;font-size:1px;color:#f0ebe1;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
     Miles de jóvenes en Madrid buscan planes cada semana. Tu espacio puede ser uno de ellos.
@@ -73,22 +87,26 @@
          style="border-radius:18px;overflow:hidden;box-shadow:0 24px 96px rgba(0,0,0,0.18);">
 
 
-    <!-- HEADER -->
+    <!-- ── HEADER ── -->
     <tr>
-      <td class="header-pad" style="background:#b01c2e;padding:12px 24px;">
+      <td class="header-pad" style="background:#b01c2e;padding:10px 24px;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
-              <img src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
-                   alt="No te lo pierdas" width="60"
-                   style="display:block;height:auto;opacity:0.7;" />
+              <img class="header-logo" src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
+                   alt="No te lo pierdas" width="58"
+                   style="height:auto;opacity:0.75;" />
             </td>
             <td valign="middle" align="right">
               <table cellpadding="0" cellspacing="0" border="0"><tr>
                 <td style="padding-right:5px;">
-                  <a href="https://instagram.com/notelopierdas.madrid" target="_blank"
-                     style="display:inline-block;width:28px;height:28px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);text-align:center;line-height:28px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank"
+                     style="display:inline-block;width:26px;height:26px;border-radius:5px;
+                            border:1px solid rgba(255,255,255,0.18);text-align:center;
+                            line-height:26px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+                         fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"
+                         style="display:inline-block;vertical-align:middle;">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
@@ -96,9 +114,13 @@
                   </a>
                 </td>
                 <td>
-                  <a href="https://tiktok.com/@notelopierdas.madrid" target="_blank"
-                     style="display:inline-block;width:28px;height:28px;border-radius:5px;border:1px solid rgba(255,255,255,0.15);text-align:center;line-height:32px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="rgba(255,255,255,0.45)" style="display:inline-block;vertical-align:middle;">
+                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank"
+                     style="display:inline-block;width:26px;height:26px;border-radius:5px;
+                            border:1px solid rgba(255,255,255,0.18);text-align:center;
+                            line-height:30px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24"
+                         fill="rgba(255,255,255,0.5)"
+                         style="display:inline-block;vertical-align:middle;">
                       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.29 6.34 6.34 0 0 0 12.67 0V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
                     </svg>
                   </a>
@@ -110,23 +132,24 @@
       </td>
     </tr>
 
-    <!-- TÍTULO + ICONO -->
+
+    <!-- ── HERO: título + icono ── -->
     <tr>
-      <td class="hero-outer" style="background:#b01c2e;padding:28px 0 0;">
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="table-layout:fixed;">
+      <td class="hero-outer" style="background:#b01c2e;padding:24px 0 0;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <!-- Texto: centrado verticalmente en la altura del icono -->
             <td class="hero-text-td" valign="middle" style="padding:0 0 32px 36px;text-align:center;">
-              <p class="hero-title" style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:30px;font-weight:800;color:#ffffff;line-height:1.15;letter-spacing:-0.03em;">
+              <p class="hero-title" style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:30px;
+                 font-weight:800;color:#ffffff;line-height:1.15;letter-spacing:-0.03em;">
                 Tu negocio<br/>merece<br/>
-                <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:28px;opacity:0.75;">ser descubierto.</span>
+                <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;
+                             font-size:28px;opacity:0.75;">ser descubierto.</span>
               </p>
             </td>
-            <!-- Icono: grande, pegado al fondo -->
-            <td class="hero-icon-td" valign="bottom" style="width:260px;padding:0;line-height:0;">
+            <td class="hero-icon-td" valign="bottom" style="width:250px;padding:0;line-height:0;">
               <img src="https://res.cloudinary.com/dpsakkjdj/image/upload/f_auto,q_auto,e_colorize:100,co_white/v1776672557/icono-vino_xbyhov.png"
-                   alt="" width="260"
-                   style="display:block;width:100%;height:auto;max-width:260px;opacity:0.5;" />
+                   alt="" width="250"
+                   style="height:auto;opacity:0.5;" />
             </td>
           </tr>
         </table>
@@ -134,36 +157,48 @@
     </tr>
 
 
-    <!-- CUERPO -->
+    <!-- ── CUERPO ── -->
     <tr>
-      <td class="pad" style="background:#ffffff;padding:36px 36px 40px;">
+      <td class="pad" style="background:#ffffff;padding:40px 40px 44px;">
 
-        <p style="margin:0 0 6px;font-family:'Inter',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#b01c2e;">Gratis · Sin complicaciones</p>
-        <p class="body-title" style="margin:0 0 24px;font-family:'Inter',Arial,sans-serif;font-size:22px;font-weight:800;color:#181818;line-height:1.25;letter-spacing:-0.03em;">
+        <p class="body-label" style="margin:0 0 8px;font-family:'Inter',Arial,sans-serif;font-size:10px;
+           font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#b01c2e;">
+          Gratis · Sin complicaciones
+        </p>
+        <p class="body-title" style="margin:0 0 28px;font-family:'Inter',Arial,sans-serif;font-size:24px;
+           font-weight:800;color:#181818;line-height:1.25;letter-spacing:-0.03em;">
           Tú tienes el sitio.<br/>
           <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;">Nosotras traemos la gente.</span>
         </p>
 
-        <!-- Bullet 1 -->
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:28px;">
+        <!-- Bullet -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
           <tr>
-            <td width="8" valign="top" style="padding-top:5px;padding-right:14px;">
-              <div style="width:6px;height:6px;border-radius:50%;background:#b01c2e;"></div>
+            <td width="10" valign="top" style="padding-top:6px;padding-right:14px;">
+              <div style="width:7px;height:7px;border-radius:50%;background:#b01c2e;"></div>
             </td>
             <td>
-              <p style="margin:0 0 3px;font-family:'Inter',Arial,sans-serif;font-size:14px;font-weight:700;color:#181818;">Tu negocio llega a miles de jóvenes de Madrid</p>
-              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#6b6b6b;line-height:1.65;">Cada semana mandamos un newsletter con los mejores planes de la ciudad. Tu local puede estar ahí.</p>
+              <p class="bullet-title" style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;
+                 font-size:15px;font-weight:700;color:#181818;line-height:1.3;">
+                Tu negocio llega a miles de jóvenes de Madrid
+              </p>
+              <p class="bullet-desc" style="margin:0;font-family:'Inter',Arial,sans-serif;
+                 font-size:14px;color:#6b6b6b;line-height:1.7;">
+                Cada semana mandamos un newsletter con los mejores planes de la ciudad. Tu local puede estar ahí.
+              </p>
             </td>
           </tr>
         </table>
 
-
         <!-- CTA -->
         <table class="cta-table" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td class="cta-td" style="background:#b01c2e;border-radius:50px;box-shadow:0 6px 24px rgba(176,28,46,0.35);">
+            <td class="cta-td" style="background:#b01c2e;border-radius:50px;
+                box-shadow:0 6px 24px rgba(176,28,46,0.35);">
               <a href="mailto:notelopierdas.contact@gmail.com?subject=Quiero%20aparecer%20en%20No%20te%20lo%20pierdas&body=Hola%2C%0A%0AMe%20llamo%20________%20y%20tengo%20________%20en%20Madrid.%0A%0AMe%20gustar%C3%ADa%20aparecer%20en%20vuestra%20plataforma.%20%C2%BFC%C3%B3mo%20funciona%3F%0A%0AGracias"
-                 style="display:inline-block;padding:16px 40px;font-family:'Inter',Arial,sans-serif;font-size:14px;font-weight:800;color:#ffffff;text-decoration:none;letter-spacing:0.01em;white-space:nowrap;">
+                 style="display:inline-block;padding:17px 44px;font-family:'Inter',Arial,sans-serif;
+                        font-size:15px;font-weight:800;color:#ffffff;text-decoration:none;
+                        letter-spacing:0.01em;white-space:nowrap;">
                 Escribirnos &nbsp;→
               </a>
             </td>
@@ -174,22 +209,86 @@
     </tr>
 
 
-    <!-- FOOTER -->
+    <!-- ── BENEFICIOS ── -->
     <tr>
-      <td class="footer-pad" style="background:#b01c2e;padding:20px 32px;">
+      <td class="benefits-pad" style="background:#faf7f2;padding:32px 24px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+
+            <!-- Beneficio 1 -->
+            <td class="benefit-col" valign="top" style="width:33%;padding-right:10px;">
+              <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
+                 font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">1</p>
+              <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
+                 color:#b01c2e;line-height:1.3;">
+                Llenamos tu local
+              </p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
+                 color:#666;line-height:1.6;">
+                Traemos a gente con ganas de conocerte.
+              </p>
+            </td>
+
+            <!-- Separador -->
+            <td style="width:1px;background:rgba(0,0,0,0.08);padding:0;"></td>
+
+            <!-- Beneficio 2 -->
+            <td class="benefit-col" valign="top" style="width:33%;padding:0 10px;">
+              <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
+                 font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">2</p>
+              <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
+                 color:#b01c2e;line-height:1.3;">
+                Redes y newsletter
+              </p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
+                 color:#666;line-height:1.6;">
+                Publicamos tu negocio en nuestras redes semanalmente.
+              </p>
+            </td>
+
+            <!-- Separador -->
+            <td style="width:1px;background:rgba(0,0,0,0.08);padding:0;"></td>
+
+            <!-- Beneficio 3 -->
+            <td class="benefit-col" valign="top" style="width:33%;padding-left:10px;">
+              <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
+                 font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">3</p>
+              <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
+                 color:#b01c2e;line-height:1.3;">
+                Gratis y sin compromisos
+              </p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
+                 color:#666;line-height:1.6;">
+                Pruébalo gratis y dinos tu opinión.
+              </p>
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+
+    <!-- ── FOOTER ── -->
+    <tr>
+      <td class="footer-pad" style="background:#b01c2e;padding:20px 28px;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
-              <img src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
+              <img class="footer-logo" src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
                    alt="No te lo pierdas" width="70"
-                   style="display:block;height:auto;opacity:0.75;" />
+                   style="height:auto;opacity:0.75;" />
             </td>
             <td valign="middle" align="right">
               <table cellpadding="0" cellspacing="0" border="0"><tr>
                 <td style="padding-right:6px;">
-                  <a href="https://instagram.com/notelopierdas.madrid" target="_blank"
-                     style="display:inline-block;width:34px;height:34px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);text-align:center;line-height:34px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" style="display:inline-block;vertical-align:middle;">
+                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank"
+                     style="display:inline-block;width:34px;height:34px;border-radius:6px;
+                            border:1px solid rgba(255,255,255,0.12);text-align:center;
+                            line-height:34px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                         fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="2"
+                         style="display:inline-block;vertical-align:middle;">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
@@ -197,9 +296,13 @@
                   </a>
                 </td>
                 <td>
-                  <a href="https://tiktok.com/@notelopierdas.madrid" target="_blank"
-                     style="display:inline-block;width:34px;height:34px;border-radius:6px;border:1px solid rgba(255,255,255,0.1);text-align:center;line-height:38px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="rgba(255,255,255,0.35)" style="display:inline-block;vertical-align:middle;">
+                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank"
+                     style="display:inline-block;width:34px;height:34px;border-radius:6px;
+                            border:1px solid rgba(255,255,255,0.12);text-align:center;
+                            line-height:38px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                         fill="rgba(255,255,255,0.4)"
+                         style="display:inline-block;vertical-align:middle;">
                       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.29 6.34 6.34 0 0 0 12.67 0V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
                     </svg>
                   </a>
@@ -208,9 +311,11 @@
             </td>
           </tr>
         </table>
-        <p class="footer-copy" style="margin:12px 0 0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.2);text-align:center;">
+        <p class="footer-copy" style="margin:14px 0 0;font-family:'Inter',Arial,sans-serif;font-size:11px;
+           color:rgba(255,255,255,0.2);text-align:center;">
           © 2026 No te lo pierdas · Madrid &nbsp;·&nbsp;
-          <a href="mailto:notelopierdas.contact@gmail.com" style="color:rgba(255,255,255,0.28);text-decoration:none;">notelopierdas.contact@gmail.com</a>
+          <a href="mailto:notelopierdas.contact@gmail.com"
+             style="color:rgba(255,255,255,0.3);text-decoration:none;">notelopierdas.contact@gmail.com</a>
         </p>
       </td>
     </tr>
