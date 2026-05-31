@@ -14,8 +14,22 @@
     table { border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; }
     img { border:0; outline:none; text-decoration:none; }
     @media only screen and (max-width:600px) {
-      .email-body { width:100% !important; border-radius:0 !important; }
-      .pad { padding:36px 28px !important; }
+      .email-body   { width:100% !important; border-radius:0 !important; }
+      .outer-pad    { padding:0 !important; }
+      .header-pad   { padding:16px 20px !important; }
+      .hero-text-td { display:block !important; width:100% !important; box-sizing:border-box !important;
+                      padding:24px 24px 16px !important; text-align:center !important; }
+      .hero-title   { font-size:24px !important; }
+      .hero-title span { font-size:22px !important; }
+      .hero-icon-td { display:block !important; width:100% !important; text-align:center !important; padding:0 0 8px !important; }
+      .hero-icon-td img { width:140px !important; margin:0 auto !important; }
+      .pad          { padding:28px 20px 32px !important; }
+      .body-title   { font-size:18px !important; }
+      .cta-table    { width:100% !important; }
+      .cta-td       { width:100% !important; display:block !important; border-radius:50px !important; }
+      .cta-td a     { display:block !important; text-align:center !important; padding:16px 20px !important; }
+      .footer-pad   { padding:16px 20px !important; }
+      .footer-copy  { font-size:10px !important; }
     }
   </style>
 </head>
@@ -26,7 +40,7 @@
   </div>
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0ebe1;">
-  <tr><td align="center" style="padding:24px 16px;">
+  <tr><td class="outer-pad" align="center" style="padding:24px 16px;">
 
   <table class="email-body" width="520" cellpadding="0" cellspacing="0" border="0"
          style="border-radius:18px;overflow:hidden;box-shadow:0 24px 96px rgba(0,0,0,0.18);">
@@ -34,7 +48,7 @@
 
     <!-- HEADER -->
     <tr>
-      <td style="background:#b01c2e;padding:20px 32px;">
+      <td class="header-pad" style="background:#b01c2e;padding:20px 32px;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
@@ -75,14 +89,14 @@
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <!-- Texto: centrado verticalmente en la altura del icono -->
-            <td valign="middle" style="padding:0 0 32px 36px;text-align:center;">
-              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:30px;font-weight:800;color:#ffffff;line-height:1.15;letter-spacing:-0.03em;">
+            <td class="hero-text-td" valign="middle" style="padding:0 0 32px 36px;text-align:center;">
+              <p class="hero-title" style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:30px;font-weight:800;color:#ffffff;line-height:1.15;letter-spacing:-0.03em;">
                 Tu negocio<br/>merece<br/>
                 <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;font-size:28px;opacity:0.75;">ser descubierto.</span>
               </p>
             </td>
             <!-- Icono: grande, pegado al fondo -->
-            <td width="260" valign="bottom" style="padding:0;line-height:0;">
+            <td class="hero-icon-td" width="260" valign="bottom" style="padding:0;line-height:0;">
               <img src="https://res.cloudinary.com/dpsakkjdj/image/upload/f_auto,q_auto,e_colorize:100,co_white/v1776672557/icono-vino_xbyhov.png"
                    alt="" width="260"
                    style="display:block;height:auto;opacity:0.5;" />
@@ -98,7 +112,7 @@
       <td class="pad" style="background:#ffffff;padding:36px 36px 40px;">
 
         <p style="margin:0 0 6px;font-family:'Inter',Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#b01c2e;">Gratis · Sin complicaciones</p>
-        <p style="margin:0 0 24px;font-family:'Inter',Arial,sans-serif;font-size:22px;font-weight:800;color:#181818;line-height:1.25;letter-spacing:-0.03em;">
+        <p class="body-title" style="margin:0 0 24px;font-family:'Inter',Arial,sans-serif;font-size:22px;font-weight:800;color:#181818;line-height:1.25;letter-spacing:-0.03em;">
           Tú tienes el sitio.<br/>
           <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;">Nosotras traemos la gente.</span>
         </p>
@@ -118,9 +132,9 @@
 
 
         <!-- CTA -->
-        <table cellpadding="0" cellspacing="0" border="0">
+        <table class="cta-table" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td style="background:#b01c2e;border-radius:50px;box-shadow:0 6px 24px rgba(176,28,46,0.35);">
+            <td class="cta-td" style="background:#b01c2e;border-radius:50px;box-shadow:0 6px 24px rgba(176,28,46,0.35);">
               <a href="mailto:notelopierdas.contact@gmail.com?subject=Quiero%20aparecer%20en%20No%20te%20lo%20pierdas&body=Hola%2C%0A%0AMe%20llamo%20________%20y%20tengo%20________%20en%20Madrid.%0A%0AMe%20gustar%C3%ADa%20aparecer%20en%20vuestra%20plataforma.%20%C2%BFC%C3%B3mo%20funciona%3F%0A%0AGracias"
                  style="display:inline-block;padding:16px 40px;font-family:'Inter',Arial,sans-serif;font-size:14px;font-weight:800;color:#ffffff;text-decoration:none;letter-spacing:0.01em;white-space:nowrap;">
                 Escribirnos &nbsp;→
@@ -135,7 +149,7 @@
 
     <!-- FOOTER -->
     <tr>
-      <td style="background:#b01c2e;padding:20px 32px;">
+      <td class="footer-pad" style="background:#b01c2e;padding:20px 32px;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
@@ -166,7 +180,7 @@
             </td>
           </tr>
         </table>
-        <p style="margin:12px 0 0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.2);text-align:center;">
+        <p class="footer-copy" style="margin:12px 0 0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:rgba(255,255,255,0.2);text-align:center;">
           © 2026 No te lo pierdas · Madrid &nbsp;·&nbsp;
           <a href="mailto:notelopierdas.contact@gmail.com" style="color:rgba(255,255,255,0.28);text-decoration:none;">notelopierdas.contact@gmail.com</a>
         </p>
