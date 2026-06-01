@@ -1433,6 +1433,7 @@
             </div>
             <p class="fnote">Respondemos en menos de 48h. Sin spam, nunca.</p>
           </form>
+          <iframe name="bizFormFrame" id="bizFormFrame" style="display:none;" aria-hidden="true"></iframe>
         </div>
       </div>
     </section>
@@ -1719,20 +1720,33 @@
 
       const email   = document.getElementById('bEmail').value.trim();
       const message = document.getElementById('bMessage').value.trim();
-      const subject = encodeURIComponent('Quiero aparecer en No te lo pierdas');
-      const body    = encodeURIComponent('Email de contacto: ' + email + '\n\n' + message);
+      const btn     = this.querySelector('.fsub');
 
-      const link = document.createElement('a');
-      link.href = 'mailto:notelopierdas.contact@gmail.com?subject=' + subject + '&body=' + body;
-      link.click();
-
-      const btn = this.querySelector('.fsub');
-      btn.textContent = '¡Listo! Abriendo tu correo ✓';
-      btn.style.background = '#2a7a2a';
+      btn.textContent = 'Enviando...';
       btn.disabled = true;
-      showToast('¡Perfecto! Te contactamos en menos de 48h');
-      this.reset();
-      setTimeout(() => { btn.textContent = 'Quiero aparecer'; btn.disabled = false; btn.style.background = ''; }, 4000);
+
+      fetch('https://formspree.io/f/mvzyjjow', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify({ email: email, message: message })
+      })
+      .then(r => r.json())
+      .then(data => {
+        if (data.ok) {
+          btn.textContent = '¡Listo! Te escribimos pronto ✓';
+          btn.style.background = '#2a7a2a';
+          showToast('¡Perfecto! Te contactamos en menos de 48h');
+          document.getElementById('bizForm').reset();
+          setTimeout(() => { btn.textContent = 'Quiero aparecer'; btn.disabled = false; btn.style.background = ''; }, 4000);
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(() => {
+        btn.textContent = 'Quiero aparecer';
+        btn.disabled = false;
+        showToast('Error al enviar. Inténtalo de nuevo.');
+      });
     });
 
     /* ── Newsletter form ─────────────────────────────────────── */
