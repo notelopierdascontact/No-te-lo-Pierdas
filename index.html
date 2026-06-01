@@ -1749,11 +1749,12 @@
       });
     });
 
-    /* ── Newsletter form ─────────────────────────────────────── */
+    /* ── Newsletter form — Mailchimp ─────────────────────────── */
     document.getElementById('newsletterForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const input   = document.getElementById('nlEmail');
       const consent = document.getElementById('nlConsent');
+
       if (!input.value.trim() || !input.value.includes('@')) {
         input.style.borderColor = '#b01c2e';
         input.addEventListener('input', () => input.style.borderColor = '', { once: true });
@@ -1764,16 +1765,51 @@
         showToast('Acepta la política de privacidad para continuar');
         return;
       }
-      const btn = this.querySelector('.nl-btn');
+
+      const btn   = this.querySelector('.nl-btn');
+      const email = input.value.trim();
       btn.textContent = 'Apuntando...';
       btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = '¡Ya eres del equipo! ✓';
-        btn.style.background = '#2a7a2a';
-        showToast('¡Nos vemos el próximo jueves!');
-        this.reset();
+
+      const cbName = 'mc_cb_' + Date.now();
+      const script = document.createElement('script');
+      script.src = 'https://gmail.us9.list-manage.com/subscribe/post-json'
+        + '?u=1f12afb74d91934fa1ce5a55d&id=7667096aed&f_id=005ec2e1f0'
+        + '&EMAIL=' + encodeURIComponent(email)
+        + '&c=' + cbName;
+
+      window[cbName] = function (data) {
+        delete window[cbName];
+        document.body.removeChild(script);
+        if (data.result === 'success') {
+          btn.textContent = '¡Ya eres del equipo! ✓';
+          btn.style.background = '#2a7a2a';
+          showToast('¡Nos vemos el próximo jueves!');
+          document.getElementById('newsletterForm').reset();
+        } else {
+          const msg = data.msg || '';
+          if (msg.toLowerCase().includes('already')) {
+            showToast('Ese email ya está suscrito 😊');
+          } else {
+            showToast('Error al suscribirse. Inténtalo de nuevo.');
+          }
+          btn.textContent = 'Apuntarme';
+          btn.disabled = false;
+          btn.style.background = '';
+          return;
+        }
         setTimeout(() => { btn.textContent = 'Apuntarme'; btn.disabled = false; btn.style.background = ''; }, 4000);
-      }, 800);
+      };
+
+      script.onerror = function () {
+        delete window[cbName];
+        document.body.removeChild(script);
+        btn.textContent = 'Apuntarme';
+        btn.disabled = false;
+        showToast('Error al conectar. Inténtalo de nuevo.');
+      };
+
+      document.body.appendChild(script);
     });
 
     /* ── Plan cards ──────────────────────────────────────────── */
