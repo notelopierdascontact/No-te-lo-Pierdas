@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>No te lo pierdas — Para negocios</title>
   <!--
-    ASUNTO: "Te hemos seleccionado para aparecer en No te lo pierdas."
-    PRE-HEADER: "Miles de jóvenes en Madrid buscan planes cada semana. Tu espacio puede ser uno de ellos."
+    ASUNTO: "¿Quieres que recomendemos tu local gratis?"
+    PRE-HEADER: "Tu local puede ser el próximo plan que recomendemos en Madrid."
   -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -18,49 +18,44 @@
       .email-body  { width:100% !important; max-width:100% !important; border-radius:0 !important; }
       .outer-pad   { padding:0 !important; }
 
-      /* Header — tira compacto */
+      /* Header */
       .header-pad  { padding:8px 16px !important; }
       .header-logo { width:48px !important; }
 
-      /* Hero — texto izquierda, icono derecha (igual que desktop) */
-      .hero-outer    { padding:16px 0 0 !important; }
-      .hero-text-td  { padding:12px 0 20px 20px !important; }
-      .hero-title      { font-size:22px !important; line-height:1.2 !important; }
-      .hero-title span { font-size:20px !important; }
-      .hero-icon-td  { width:130px !important; }
-      .hero-icon-td img { width:130px !important; max-width:130px !important; }
+      /* Hero — 2 columnas mantenidas, texto pegado al borde */
+      .hero-outer   { padding:14px 0 0 !important; }
+      .hero-text-td { padding:10px 8px 18px 16px !important; }
+      .hero-title   { font-size:21px !important; line-height:1.2 !important; }
+      .hero-title span { font-size:19px !important; }
+      .hero-icon-td { width:120px !important; }
+      .hero-icon-td img { width:120px !important; max-width:120px !important; }
 
       /* Cuerpo */
-      .pad          { padding:32px 22px 36px !important; }
+      .pad          { padding:28px 20px 32px !important; }
       .body-label   { font-size:11px !important; }
-      .body-title   { font-size:21px !important; }
-      .bullet-title { font-size:16px !important; }
-      .bullet-desc  { font-size:14px !important; }
+      .body-title   { font-size:20px !important; }
+      .body-desc    { font-size:14px !important; }
 
       /* CTA */
       .cta-table { width:100% !important; }
-      .cta-td    {
-        display:block !important; width:100% !important;
-        border-radius:50px !important; text-align:center !important;
-      }
-      .cta-td a  {
-        display:block !important; text-align:center !important;
-        padding:18px 20px !important; font-size:16px !important;
-        white-space:normal !important;
-      }
+      .cta-td    { display:block !important; width:100% !important; border-radius:50px !important; text-align:center !important; }
+      .cta-td a  { display:block !important; text-align:center !important; padding:17px 20px !important; font-size:15px !important; white-space:normal !important; }
 
       /* Beneficios */
-      .benefits-pad { padding:28px 20px !important; }
-      .benefit-col  {
-        display:block !important; width:100% !important;
-        padding:0 0 20px !important; text-align:center !important;
-      }
+      .benefits-pad { padding:24px 18px !important; }
+      .benefit-col  { display:block !important; width:100% !important; padding:0 0 20px !important; }
       .benefit-col:last-child { padding-bottom:0 !important; }
-      .benefit-num  { font-size:22px !important; }
+      .benefit-num  { font-size:52px !important; }
+
+      /* CTA cierre */
+      .close-pad  { padding:28px 20px !important; }
+      .close-cta-table { width:100% !important; }
+      .close-cta-td { display:block !important; width:100% !important; border-radius:50px !important; text-align:center !important; }
+      .close-cta-td a { display:block !important; text-align:center !important; padding:17px 20px !important; font-size:15px !important; white-space:normal !important; }
 
       /* Footer */
       .footer-pad  { padding:14px 16px !important; }
-      .footer-logo { width:60px !important; }
+      .footer-logo { width:58px !important; }
       .footer-copy { font-size:10px !important; }
     }
   </style>
@@ -68,7 +63,7 @@
 <body style="margin:0;padding:0;background:#f0ebe1;font-family:'Inter',Arial,sans-serif;">
 
   <div style="display:none;font-size:1px;color:#f0ebe1;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
-    Miles de jóvenes en Madrid buscan planes cada semana. Tu espacio puede ser uno de ellos.
+    Tu local puede ser el próximo plan que recomendemos en Madrid.
   </div>
 
   <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f0ebe1;">
@@ -84,26 +79,24 @@
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
-              <img class="header-logo" src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
-                   alt="No te lo pierdas" width="58"
-                   style="height:auto;opacity:0.75;" />
+              <img class="header-logo"
+                   src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
+                   alt="No te lo pierdas" width="58" style="height:auto;opacity:0.75;" />
             </td>
             <td valign="middle" align="right">
               <table cellpadding="0" cellspacing="0" border="0"><tr>
                 <td style="padding-right:6px;">
-                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank"
-                     style="text-decoration:none;">
+                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank" style="text-decoration:none;">
                     <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/instagram.png"
                          width="26" height="26" alt="Instagram"
-                         style="display:block;border-radius:5px;opacity:0.75;" />
+                         style="display:block;border-radius:5px;opacity:0.7;" />
                   </a>
                 </td>
                 <td>
-                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank"
-                     style="text-decoration:none;">
+                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank" style="text-decoration:none;">
                     <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/tiktok.png"
                          width="26" height="26" alt="TikTok"
-                         style="display:block;border-radius:5px;opacity:0.75;" />
+                         style="display:block;border-radius:5px;opacity:0.7;" />
                   </a>
                 </td>
               </tr></table>
@@ -114,23 +107,22 @@
     </tr>
 
 
-    <!-- ── HERO: título + icono ── -->
+    <!-- ── HERO ── -->
     <tr>
-      <td class="hero-outer" style="background:#b01c2e;padding:24px 0 0;">
+      <td class="hero-outer" style="background:#b01c2e;padding:20px 0 0;">
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
-            <td class="hero-text-td" valign="middle" style="padding:0 0 32px 36px;text-align:center;">
+            <td class="hero-text-td" valign="middle" style="padding:0 0 28px 32px;">
               <p class="hero-title" style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:30px;
-                 font-weight:800;color:#ffffff;line-height:1.15;letter-spacing:-0.03em;">
-                Tu negocio<br/>merece<br/>
+                 font-weight:800;color:#ffffff;line-height:1.12;letter-spacing:-0.03em;">
+                Tu local puede ser<br/>el próximo plan<br/>
                 <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;
-                             font-size:28px;opacity:0.75;">ser descubierto.</span>
+                             font-size:28px;opacity:0.72;">que todos quieran probar.</span>
               </p>
             </td>
-            <td class="hero-icon-td" valign="bottom" style="width:250px;padding:0;line-height:0;">
+            <td class="hero-icon-td" valign="bottom" style="width:240px;padding:0;line-height:0;">
               <img src="https://res.cloudinary.com/dpsakkjdj/image/upload/f_auto,q_auto,e_colorize:100,co_white/v1776672557/icono-vino_xbyhov.png"
-                   alt="" width="250"
-                   style="height:auto;opacity:0.5;" />
+                   alt="" width="240" style="height:auto;opacity:0.5;" />
             </td>
           </tr>
         </table>
@@ -146,32 +138,19 @@
            font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#b01c2e;">
           Gratis · Sin complicaciones
         </p>
-        <p class="body-title" style="margin:0 0 28px;font-family:'Inter',Arial,sans-serif;font-size:24px;
-           font-weight:800;color:#181818;line-height:1.25;letter-spacing:-0.03em;">
+        <p class="body-title" style="margin:0 0 20px;font-family:'Inter',Arial,sans-serif;font-size:24px;
+           font-weight:800;color:#181818;line-height:1.22;letter-spacing:-0.03em;">
           Tú tienes el sitio.<br/>
-          <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;">Nosotras traemos la gente.</span>
+          <span style="font-family:Georgia,serif;font-style:italic;font-weight:400;">Nosotras lo ponemos<br/>delante de la gente.</span>
         </p>
 
-        <!-- Bullet -->
-        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
-          <tr>
-            <td width="10" valign="top" style="padding-top:6px;padding-right:14px;">
-              <div style="width:7px;height:7px;border-radius:50%;background:#b01c2e;"></div>
-            </td>
-            <td>
-              <p class="bullet-title" style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;
-                 font-size:15px;font-weight:700;color:#181818;line-height:1.3;">
-                Tu negocio llega a miles de jóvenes de Madrid
-              </p>
-              <p class="bullet-desc" style="margin:0;font-family:'Inter',Arial,sans-serif;
-                 font-size:14px;color:#6b6b6b;line-height:1.7;">
-                Cada semana mandamos un newsletter con los mejores planes de la ciudad. Tu local puede estar ahí.
-              </p>
-            </td>
-          </tr>
-        </table>
+        <p class="body-desc" style="margin:0 0 32px;font-family:'Inter',Arial,sans-serif;font-size:14px;
+           color:#555;line-height:1.75;">
+          Cada semana recomendamos planes, restaurantes, bares y experiencias a una comunidad joven que busca sitios nuevos en Madrid.<br/><br/>
+          Si tienes un local con algo que merece ser contado, queremos conocerte.
+        </p>
 
-        <!-- CTA -->
+        <!-- CTA principal -->
         <table class="cta-table" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td class="cta-td" style="background:#b01c2e;border-radius:50px;
@@ -180,7 +159,7 @@
                  style="display:inline-block;padding:17px 44px;font-family:'Inter',Arial,sans-serif;
                         font-size:15px;font-weight:800;color:#ffffff;text-decoration:none;
                         letter-spacing:0.01em;white-space:nowrap;">
-                Escribirnos &nbsp;→
+                Quiero aparecer gratis &nbsp;→
               </a>
             </td>
           </tr>
@@ -196,54 +175,63 @@
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
 
-            <!-- Beneficio 1 -->
             <td class="benefit-col" valign="top" style="width:33%;padding-right:10px;">
               <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
                  font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">1</p>
               <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
-                 color:#b01c2e;line-height:1.3;">
-                Llenamos tu local
-              </p>
-              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
-                 color:#666;line-height:1.6;">
-                Traemos a gente con ganas de conocerte.
+                 color:#b01c2e;line-height:1.3;">Te damos visibilidad</p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:#666;line-height:1.6;">
+                Tu local aparece ante gente que busca planes nuevos en Madrid.
               </p>
             </td>
 
-            <!-- Separador -->
             <td style="width:1px;background:rgba(0,0,0,0.08);padding:0;"></td>
 
-            <!-- Beneficio 2 -->
             <td class="benefit-col" valign="top" style="width:33%;padding:0 10px;">
               <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
                  font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">2</p>
               <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
-                 color:#b01c2e;line-height:1.3;">
-                Redes y newsletter
-              </p>
-              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
-                 color:#666;line-height:1.6;">
-                Publicamos tu negocio en nuestras redes semanalmente.
+                 color:#b01c2e;line-height:1.3;">Redes y newsletter</p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:#666;line-height:1.6;">
+                Lo recomendamos en nuestros canales con un enfoque cercano.
               </p>
             </td>
 
-            <!-- Separador -->
             <td style="width:1px;background:rgba(0,0,0,0.08);padding:0;"></td>
 
-            <!-- Beneficio 3 -->
             <td class="benefit-col" valign="top" style="width:33%;padding-left:10px;">
               <p class="benefit-num" style="margin:0 0 12px;font-family:Georgia,serif;font-style:italic;
                  font-size:64px;font-weight:400;color:rgba(176,28,46,0.15);line-height:1;">3</p>
               <p style="margin:0 0 5px;font-family:'Inter',Arial,sans-serif;font-size:12px;font-weight:800;
-                 color:#b01c2e;line-height:1.3;">
-                Gratis y sin compromisos
-              </p>
-              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;
-                 color:#666;line-height:1.6;">
-                Pruébalo gratis y dinos tu opinión.
+                 color:#b01c2e;line-height:1.3;">Lo pruebas gratis</p>
+              <p style="margin:0;font-family:'Inter',Arial,sans-serif;font-size:11px;color:#666;line-height:1.6;">
+                Sin coste, sin permanencia y sin líos.
               </p>
             </td>
 
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+
+    <!-- ── CTA CIERRE ── -->
+    <tr>
+      <td class="close-pad" style="background:#ffffff;padding:36px 40px 40px;text-align:center;">
+        <p style="margin:0 0 6px;font-family:'Inter',Arial,sans-serif;font-size:11px;font-weight:700;
+           letter-spacing:0.14em;text-transform:uppercase;color:#aaa;">
+          ¿Nos cuentas qué hace especial a tu sitio?
+        </p>
+        <table class="close-cta-table" cellpadding="0" cellspacing="0" border="0" align="center">
+          <tr>
+            <td class="close-cta-td" style="border-radius:50px;border:2px solid #b01c2e;">
+              <a href="mailto:notelopierdas.contact@gmail.com?subject=Quiero%20que%20recomend%C3%A9is%20mi%20local&body=Hola%2C%0A%0AMe%20llamo%20________%20y%20tengo%20________%20en%20Madrid.%0A%0AMe%20gustar%C3%ADa%20que%20lo%20recomend%C3%A9is.%20%C2%BFC%C3%B3mo%20funciona%3F%0A%0AGracias"
+                 style="display:inline-block;padding:15px 40px;font-family:'Inter',Arial,sans-serif;
+                        font-size:14px;font-weight:800;color:#b01c2e;text-decoration:none;
+                        letter-spacing:0.01em;white-space:nowrap;">
+                Cuéntanos tu local &nbsp;→
+              </a>
+            </td>
           </tr>
         </table>
       </td>
@@ -256,23 +244,21 @@
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
           <tr>
             <td valign="middle">
-              <img class="footer-logo" src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
-                   alt="No te lo pierdas" width="70"
-                   style="height:auto;opacity:0.75;" />
+              <img class="footer-logo"
+                   src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto,e_colorize:100,co_white/logo_gsthza"
+                   alt="No te lo pierdas" width="70" style="height:auto;opacity:0.75;" />
             </td>
             <td valign="middle" align="right">
               <table cellpadding="0" cellspacing="0" border="0"><tr>
                 <td style="padding-right:6px;">
-                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank"
-                     style="text-decoration:none;">
+                  <a href="https://www.instagram.com/notelopierdas.madrid" target="_blank" style="text-decoration:none;">
                     <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/instagram.png"
                          width="32" height="32" alt="Instagram"
                          style="display:block;border-radius:6px;opacity:0.7;" />
                   </a>
                 </td>
                 <td>
-                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank"
-                     style="text-decoration:none;">
+                  <a href="https://www.tiktok.com/@notelopierdas.madrid" target="_blank" style="text-decoration:none;">
                     <img src="https://cdn.tools.unlayer.com/social/icons/circle-white/tiktok.png"
                          width="32" height="32" alt="TikTok"
                          style="display:block;border-radius:6px;opacity:0.7;" />
@@ -291,7 +277,7 @@
         <p style="margin:8px 0 0;font-family:'Inter',Arial,sans-serif;font-size:10px;
            color:rgba(255,255,255,0.15);text-align:center;">
           <a href="mailto:notelopierdas.contact@gmail.com?subject=Darme%20de%20baja&body=Por%20favor%2C%20dame%20de%20baja%20de%20esta%20lista%20de%20correo."
-             style="color:rgba(255,255,255,0.25);text-decoration:underline;">Darse de baja</a>
+             style="color:rgba(255,255,255,0.22);text-decoration:underline;">Darse de baja</a>
         </p>
       </td>
     </tr>
