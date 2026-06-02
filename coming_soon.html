@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No te lo pierdas — Coming soon</title>
+  <meta name="description" content="Planes para gente joven en Madrid. Próximamente." />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #b01c2e;
+      --red-dark: #8e1524;
+      --cream:    #faf7f2;
+      --black:    #181818;
+      --gray:     #6b6b6b;
+      --white:    #ffffff;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--red);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 24px;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .wrap {
+      max-width: 480px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .logo {
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto 36px;
+      opacity: 0.92;
+      filter: brightness(0) invert(1);
+    }
+
+    .coming {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: clamp(2.4rem, 8vw, 4rem);
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      opacity: 0.9;
+    }
+
+    .sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.25);
+      margin: 0 auto 40px;
+    }
+
+    .nl-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }
+
+    .nl-row {
+      display: flex;
+      align-items: center;
+      background: var(--white);
+      border-radius: 50px;
+      padding: 5px 5px 5px 22px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .nl-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem; /* ≥16px evita el zoom automático en iOS */
+      color: var(--black);
+      outline: none;
+      padding: 10px 0;
+      min-width: 0;
+    }
+    .nl-input::placeholder { color: rgba(0,0,0,0.3); }
+
+    .nl-btn {
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s ease;
+      letter-spacing: 0.01em;
+      touch-action: manipulation;
+      min-height: 44px;
+    }
+    .nl-btn:hover { background: var(--red-dark); }
+
+    .nl-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.4);
+      text-align: left;
+      cursor: pointer;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .nl-consent input[type=checkbox] {
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: var(--white);
+      cursor: pointer;
+    }
+    .nl-consent a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+
+    .nl-note {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.28);
+      margin-top: 10px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(60px);
+      background: var(--black);
+      color: var(--white);
+      padding: 13px 24px;
+      border-radius: 50px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+      transition: transform 0.32s cubic-bezier(.34,1.56,.64,1);
+      z-index: 99;
+      pointer-events: none;
+      white-space: nowrap;
+      max-width: calc(100vw - 48px);
+      text-align: center;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 600px) {
+      body { padding: 36px 20px; align-items: flex-start; padding-top: max(60px, 12vh); }
+      .logo { width: 110px; margin-bottom: 28px; }
+      .coming { margin-bottom: 20px; }
+      .divider { margin-bottom: 28px; }
+      .nl-label { margin-bottom: 16px; }
+      .nl-row { padding: 4px 4px 4px 18px; }
+      .nl-btn { padding: 12px 16px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <img src="https://res.cloudinary.com/db4kklpwt/image/upload/f_auto,q_auto/logo_gsthza"
+         class="logo" alt="No te lo pierdas" />
+
+    <p class="coming">Coming soon.</p>
+
+    <div class="divider"></div>
+
+    <p class="nl-label">Si no te quieres perder nada</p>
+
+    <form id="csForm" novalidate>
+      <div class="nl-row">
+        <input type="email" class="nl-input" id="csEmail"
+               placeholder="tu@email.com" required aria-label="Tu email" />
+        <button type="submit" class="nl-btn" id="csBtn">Apuntarme</button>
+      </div>
+      <label class="nl-consent">
+        <input type="checkbox" id="csConsent" required />
+        <span>He leído y acepto la <a href="#">política de privacidad</a></span>
+      </label>
+      <p class="nl-note">Sin spam. Puedes darte de baja cuando quieras.</p>
+    </form>
+
+  </div>
+
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+  <script>
+    document.getElementById('csForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const input   = document.getElementById('csEmail');
+      const consent = document.getElementById('csConsent');
+      const btn     = document.getElementById('csBtn');
+
+      if (!input.value.trim() || !input.value.includes('@')) {
+        input.style.outline = '2px solid rgba(0,0,0,0.2)';
+        input.addEventListener('input', () => input.style.outline = '', { once: true });
+        showToast('Introduce un email válido');
+        return;
+      }
+      if (!consent.checked) {
+        showToast('Acepta la política de privacidad para continuar');
+        return;
+      }
+
+      btn.textContent = 'Apuntando...';
+      btn.disabled = true;
+
+      const cbName = 'mc_cb_' + Date.now();
+      const script = document.createElement('script');
+      script.src = 'https://gmail.us9.list-manage.com/subscribe/post-json'
+        + '?u=1f12afb74d91934fa1ce5a55d&id=7667096aed&f_id=005ec2e1f0'
+        + '&EMAIL=' + encodeURIComponent(input.value.trim())
+        + '&c=' + cbName;
+
+      window[cbName] = function (data) {
+        delete window[cbName];
+        document.body.removeChild(script);
+        if (data.result === 'success') {
+          btn.textContent = '¡Ya estás apuntada! ✓';
+          btn.style.background = '#2a7a2a';
+          showToast('¡Nos vemos pronto!');
+          document.getElementById('csForm').reset();
+          setTimeout(() => { btn.textContent = 'Apuntarme'; btn.disabled = false; btn.style.background = ''; }, 4000);
+        } else {
+          const msg = data.msg || '';
+          if (msg.toLowerCase().includes('already')) {
+            showToast('Ese email ya está suscrito 😊');
+          } else {
+            showToast('Error al suscribirse. Inténtalo de nuevo.');
+          }
+          btn.textContent = 'Apuntarme';
+          btn.disabled = false;
+        }
+      };
+
+      script.onerror = function () {
+        delete window[cbName];
+        document.body.removeChild(script);
+        btn.textContent = 'Apuntarme';
+        btn.disabled = false;
+        showToast('Error al conectar. Inténtalo de nuevo.');
+      };
+
+      document.body.appendChild(script);
+    });
+
+    let toastTimer;
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 3200);
+    }
+  </script>
+
+</body>
+</html>
