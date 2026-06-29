@@ -10,6 +10,7 @@
   <meta property="og:description" content="Talleres, música en vivo, tapas y pop-ups curados en Madrid. Tú dinos cuándo, nosotras hacemos el resto." />
   <meta property="og:image"       content="logo.png" />
   <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="theme-color"        content="#b01c2e" />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -490,59 +491,75 @@
     .carousel-wrap { overflow: hidden; }
     .carousel-track {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       transition: transform 0.45s cubic-bezier(.25,.46,.45,.94);
       will-change: transform;
     }
     .pcard {
-      flex: 0 0 calc(25% - 9px);
+      flex: 0 0 calc(25% - 12px);
       background: var(--white);
       cursor: pointer;
       overflow: hidden;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      border-radius: 20px;
+      box-shadow: 0 1px 14px rgba(0,0,0,0.055);
+      transition: transform 0.32s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow 0.32s ease;
     }
-    .pcard:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.1); }
+    .pcard:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.11);
+    }
     .pcard-img {
       position: relative;
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
     }
     .pcard img {
       display: block;
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.5s ease;
+      transition: transform 0.55s cubic-bezier(.25,.46,.45,.94);
     }
-    .pcard:hover img { transform: scale(1.04); }
+    .pcard:hover img { transform: scale(1.06); }
     .pcard-badge {
       position: absolute;
-      top: 10px; left: 10px;
-      font-size: 0.6rem; font-weight: 700;
+      bottom: 12px; left: 12px;
+      font-size: 0.58rem; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
-      padding: 4px 10px;
-      color: var(--white);
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      padding: 5px 13px;
+      color: var(--black);
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.55);
     }
     .pcard-body {
-      padding: 14px 16px 14px;
-      border-top: 2px solid var(--red);
+      padding: 16px 18px 20px;
     }
     .pcard-name {
       font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 0.92rem;
+      font-weight: 600;
+      font-size: 0.88rem;
       color: var(--black);
-      line-height: 1.35;
+      line-height: 1.4;
       display: block;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      margin-bottom: 7px;
+      letter-spacing: -0.015em;
     }
     .pcard-meta {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--gray);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .pcard-empresa {
+      font-size: 0.62rem;
+      color: rgba(0,0,0,0.32);
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
       display: block;
     }
     .cscrubber {
@@ -555,6 +572,159 @@
       position: absolute; top: 0; left: 0; height: 100%;
       background: var(--black);
       transition: left 0.45s ease, width 0.45s ease;
+    }
+
+    /* ─── Plan cards carousel ────────────────────────────────────── */
+    .rcard-carousel-outer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .rcard-carousel-wrap {
+      flex: 1;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .rcard-carousel-track {
+      display: flex;
+      gap: 16px;
+      transition: transform 0.45s cubic-bezier(.25,.46,.45,.94);
+      will-change: transform;
+    }
+
+    .rcard {
+      flex: 0 0 calc(33.333% - 11px);
+      background: var(--cream-2);
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s cubic-bezier(.25,.46,.45,.94),
+                  box-shadow 0.3s ease;
+    }
+    .rcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba(0,0,0,0.12);
+    }
+
+    .rcard-top {
+      padding: 16px 16px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .rcard-cat {
+      font-family: 'Caveat', cursive;
+      font-weight: 700;
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      color: var(--red);
+      line-height: 1;
+    }
+    .rcard-zona-badge {
+      background: rgba(24,24,24,0.82);
+      color: var(--white);
+      font-size: 0.52rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 50px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    .rcard-img {
+      overflow: hidden;
+      margin: 0 14px;
+      border-radius: 14px;
+      aspect-ratio: 4/3;
+      flex-shrink: 0;
+    }
+    .rcard-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.55s cubic-bezier(.25,.46,.45,.94);
+    }
+    .rcard:hover .rcard-img img { transform: scale(1.05); }
+
+    .rcard-body {
+      padding: 12px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .rcard-name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .rcard-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.35;
+      flex: 1;
+    }
+    .rcard-price {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      color: var(--black);
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+    .rcard-meta {
+      font-size: 0.68rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+    .rcard-horario {
+      font-size: 0.68rem;
+      color: var(--gray);
+      margin-top: 1px;
+    }
+    .rcard-reserve {
+      display: inline-flex;
+      align-self: flex-start;
+      align-items: center;
+      gap: 3px;
+      margin-top: auto;
+      padding-top: 8px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--red);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: gap 0.18s ease, color 0.18s ease;
+    }
+    .rcard-reserve:hover { gap: 7px; color: var(--black); }
+
+    .planes-empty {
+      padding: 56px 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .rcard { flex: 0 0 calc(50% - 8px); }
+      .rcard-top { padding: 13px 13px 6px; }
+      .rcard-img { margin: 0 11px; border-radius: 11px; }
+      .rcard-body { padding: 10px 13px 13px; }
+    }
+    @media (max-width: 600px) {
+      .rcard { flex: 0 0 calc(100vw - 56px); }
+      .rcard-cat { font-size: 0.95rem; }
+      .rcard-carousel-outer { gap: 0; }
+      .rcard-carousel-outer .carousel-btn { display: none; }
     }
 
     /* ─── How it works ───────────────────────────────────────────── */
@@ -996,7 +1166,7 @@
       .faq-left { position: static; }
       .nl-layout { grid-template-columns: 1fr; gap: 36px; }
       .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
-      .pcard { flex: 0 0 calc(50% - 6px); }
+      .pcard { flex: 0 0 calc(50% - 8px); }
     }
 
     /* ─── Responsive — mobile ≤600px ────────────────────────────── */
@@ -1042,7 +1212,7 @@
 
       /* Plans carousel — flechas ocultas, swipe nativo */
       .carousel-btn { display: none; }
-      .pcard { flex: 0 0 calc(100vw - 40px); }
+      .pcard { flex: 0 0 calc(100vw - 56px); border-radius: 16px; }
 
       /* Testimonios — mantener 3 columnas, compactar texto */
       .testi-grid { gap: 16px; }
@@ -1072,6 +1242,480 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
       .carousel-track { transition: none; }
+    }
+
+    /* ─── Plan modal ─────────────────────────────────────────────── */
+    .plan-modal {
+      position: fixed; inset: 0; z-index: 300;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .plan-modal.open { pointer-events: auto; opacity: 1; }
+
+    .plan-modal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .plan-modal-panel {
+      position: relative;
+      background: var(--white);
+      width: 100%; max-width: 640px;
+      max-height: 90vh; overflow-y: auto;
+      transform: translateY(28px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+      scrollbar-width: thin;
+    }
+    .plan-modal.open .plan-modal-panel { transform: translateY(0) scale(1); }
+
+    .plan-modal-hero {
+      position: relative;
+      aspect-ratio: 16/9; overflow: hidden;
+    }
+    .plan-modal-hero img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .plan-modal-close {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(0,0,0,0.55); color: var(--white);
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+    }
+    .plan-modal-close:hover { background: var(--red); }
+
+    .plan-modal-body { padding: 28px 28px 40px; }
+
+    .plan-modal-empresa {
+      font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 6px; display: block;
+    }
+    .plan-modal-title {
+      font-family: 'Inter', sans-serif; font-style: normal;
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;
+      color: var(--black); margin-bottom: 16px;
+    }
+
+    .plan-modal-chips {
+      display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px;
+    }
+    .pm-chip {
+      padding: 5px 13px; border-radius: 50px;
+      font-size: 0.74rem; font-weight: 600;
+      border: 1.5px solid rgba(0,0,0,0.15); color: var(--black);
+      white-space: nowrap;
+    }
+    .pm-chip.red { background: var(--red); color: var(--white); border-color: transparent; }
+    .pm-chip.dark { background: var(--black); color: var(--white); border-color: transparent; }
+
+    .plan-modal-desc {
+      font-size: 0.9rem; color: var(--gray);
+      line-height: 1.78; margin-bottom: 24px;
+    }
+
+    .pm-section-h {
+      font-size: 0.64rem; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: rgba(0,0,0,0.32); margin-bottom: 10px;
+    }
+    .pm-includes { margin-bottom: 24px; }
+    .pm-includes ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .pm-includes li {
+      font-size: 0.86rem; color: var(--black);
+      padding-left: 22px; position: relative;
+    }
+    .pm-includes li::before {
+      content: '✓'; position: absolute; left: 0;
+      color: var(--red); font-weight: 700; font-size: 0.8rem;
+    }
+
+    .pm-address {
+      font-size: 0.82rem; color: var(--gray); line-height: 1.55;
+      padding: 12px 16px; background: var(--cream-2);
+      border-left: 3px solid var(--red); margin-bottom: 28px;
+    }
+
+    .pm-cta {
+      display: block; background: var(--red); color: var(--white);
+      text-align: center; padding: 15px 24px;
+      font-size: 0.85rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .pm-cta:hover { background: var(--black); transform: translateY(-2px); }
+
+    @media (max-width: 600px) {
+      .plan-modal { padding: 0; align-items: flex-end; }
+      .plan-modal-panel { max-width: 100%; max-height: 92vh; border-radius: 16px 16px 0 0; }
+      .plan-modal-body { padding: 22px 20px 32px; }
+    }
+
+    /* ─── All Planes Panel ───────────────────────────────────── */
+    .all-planes-panel {
+      position: fixed;
+      inset: 0;
+      z-index: 250;
+      background: var(--cream);
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .all-planes-panel.open { transform: translateX(0); }
+
+    .all-planes-header {
+      background: rgba(250,247,242,0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--gray-lt);
+      flex-shrink: 0;
+    }
+    .all-planes-header-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 18px 48px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .all-planes-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--black);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      flex-shrink: 0;
+      transition: color var(--transition);
+    }
+    .all-planes-back:hover { color: var(--red); }
+    .all-planes-back svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .all-planes-title-wrap { flex: 1; }
+    .all-planes-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800; font-style: normal;
+      font-size: 1.1rem;
+      letter-spacing: -0.025em;
+      color: var(--black);
+    }
+    .all-planes-count-badge {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--white);
+      background: var(--red);
+      padding: 4px 12px;
+      border-radius: 50px;
+      flex-shrink: 0;
+    }
+
+    .all-planes-cats {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 10px 48px 14px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .apc-btn {
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .apc-btn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+    .apc-btn:hover:not(.active) { border-color: var(--black); }
+
+    .all-planes-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 36px 48px 80px;
+    }
+    .all-planes-grid {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .all-planes-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 72px 0;
+      font-size: 0.92rem;
+      color: var(--gray);
+    }
+
+    @media (max-width: 1024px) and (min-width: 821px) {
+      .all-planes-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 820px) {
+      .all-planes-header-inner { padding: 16px 32px; }
+      .all-planes-cats { padding: 8px 32px 12px; }
+      .all-planes-body { padding: 24px 32px 60px; }
+      .all-planes-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
+    @media (max-width: 600px) {
+      .all-planes-header-inner { padding: 14px 20px; }
+      .all-planes-back span { display: none; }
+      .all-planes-cats { padding: 8px 20px 10px; gap: 6px; }
+      .apc-btn { padding: 6px 14px; font-size: 0.73rem; }
+      .all-planes-body { padding: 18px 16px 56px; }
+      .all-planes-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    }
+
+    /* ─── Price on card ──────────────────────────────────────── */
+    .pcard-precio {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--black);
+      display: inline-block;
+      margin-top: 3px;
+      letter-spacing: -0.01em;
+    }
+
+    /* ─── Plans counter & reset ──────────────────────────────── */
+    .plans-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      min-height: 28px;
+    }
+    .plans-count {
+      font-size: 0.72rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+    .reset-filters-btn {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gray);
+      background: none;
+      border: 1.5px solid var(--gray-lt);
+      padding: 6px 14px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: none;
+    }
+    .reset-filters-btn.visible { display: inline-block; }
+    .reset-filters-btn:hover { border-color: var(--black); color: var(--black); }
+
+    /* ─── Modal navigation arrows ────────────────────────────── */
+    .pm-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: none; cursor: pointer;
+      color: var(--black); font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 3;
+      transition: background var(--transition), opacity var(--transition);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    .pm-nav:hover { background: var(--white); }
+    .pm-nav:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+    .pm-nav-prev { left: 10px; }
+    .pm-nav-next { right: 10px; }
+
+    /* ─── Privacy modal ──────────────────────────────────────── */
+    .priv-modal {
+      position: fixed; inset: 0; z-index: 400;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      pointer-events: none; opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .priv-modal.open { pointer-events: auto; opacity: 1; }
+    .priv-modal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .priv-modal-panel {
+      position: relative;
+      background: var(--white);
+      width: 100%; max-width: 600px;
+      max-height: 82vh; overflow-y: auto;
+      padding: 40px 36px 36px;
+      border-radius: 16px;
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
+      scrollbar-width: thin;
+    }
+    .priv-modal.open .priv-modal-panel { transform: translateY(0); }
+    .priv-modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--cream-2); color: var(--black);
+      font-size: 1rem; display: flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+      transition: background var(--transition);
+    }
+    .priv-modal-close:hover { background: var(--gray-lt); }
+    .priv-modal-panel h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800; font-style: normal;
+      font-size: 1.3rem; letter-spacing: -0.025em;
+      margin-bottom: 6px; color: var(--black);
+    }
+    .priv-modal-panel > p:first-of-type {
+      font-size: 0.73rem; color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .priv-modal-panel h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; font-style: normal;
+      font-size: 0.82rem; margin: 20px 0 6px;
+      color: var(--black); letter-spacing: -0.01em;
+    }
+    .priv-modal-panel p, .priv-modal-panel li {
+      font-size: 0.82rem; color: var(--gray); line-height: 1.78;
+    }
+    .priv-modal-panel ul { padding-left: 18px; margin-top: 4px; }
+    .priv-modal-panel a { color: var(--red); }
+    @media (max-width: 600px) {
+      .priv-modal { padding: 0; align-items: flex-end; }
+      .priv-modal-panel { max-width: 100%; border-radius: 16px 16px 0 0; padding: 32px 20px 28px; max-height: 88vh; }
+    }
+
+    /* ─── Explorar row (botones pequeños) ───────────────────── */
+    .explora-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .explora-pill {
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid rgba(0,0,0,0.22);
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      font-family: 'Inter', sans-serif;
+      min-height: 40px;
+      letter-spacing: -0.01em;
+    }
+    .explora-pill:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+    .explora-pill--red { background: var(--red); color: var(--white); border-color: var(--red); }
+    .explora-pill--red:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+    /* ─── Locales panel filter buttons ──────────────────────── */
+    .apc-lbtn {
+      padding: 7px 18px;
+      border-radius: 50px;
+      font-size: 0.78rem; font-weight: 500;
+      background: transparent;
+      color: var(--black);
+      border: 1.5px solid rgba(0,0,0,0.18);
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .apc-lbtn.active { background: var(--red); color: var(--white); border-color: var(--red); }
+    .apc-lbtn:hover:not(.active) { border-color: var(--black); }
+    @media (max-width: 600px) {
+      .apc-lbtn { padding: 6px 14px; font-size: 0.73rem; }
+    }
+
+    /* ─── Empresa cards ──────────────────────────────────────── */
+    .empresa-card {
+      background: var(--white);
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 1px 14px rgba(0,0,0,0.055);
+      transition: transform 0.32s cubic-bezier(.25,.46,.45,.94), box-shadow 0.32s ease;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+    .empresa-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.11);
+    }
+    .empresa-card-img {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+    }
+    .empresa-card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform 0.55s cubic-bezier(.25,.46,.45,.94);
+    }
+    .empresa-card:hover .empresa-card-img img { transform: scale(1.06); }
+    .empresa-card-badge {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 13px;
+      color: var(--black);
+      background: rgba(255,255,255,0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.55);
+    }
+    .empresa-card-body { padding: 16px 18px 20px; }
+    .empresa-card-name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--black);
+      line-height: 1.3;
+      display: block;
+      margin-bottom: 5px;
+      letter-spacing: -0.018em;
+    }
+    .empresa-card-meta {
+      font-size: 0.7rem;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .empresa-card-planes {
+      font-size: 0.65rem;
+      color: var(--red);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      display: block;
+      margin-top: 6px;
+    }
+
+    .empresa-card--logo .empresa-card-img {
+      background: var(--white);
+    }
+    .empresa-card--logo .empresa-card-img[style] {
+      background: unset;
+    }
+    .empresa-card--logo .empresa-card-img img {
+      object-fit: contain;
+      padding: 24px;
     }
   </style>
 </head>
@@ -1110,6 +1754,7 @@
           <!-- Left: text -->
           <div class="hero-text-col">
             <h1 class="hero-title">
+              
               Los mejores planes<br/>
               no se buscan —<br/>
               <span class="soft">se encuentran.</span>
@@ -1202,10 +1847,10 @@
               <div class="fgroup-content">
                 <p class="fgroup-label">Cuándo</p>
                 <div class="fgroup-pills" role="tablist">
-                  <button class="fpill active" role="tab" aria-selected="true"  data-tab="hoy">Hoy</button>
+                  <button class="fpill"        role="tab" aria-selected="false" data-tab="hoy">Hoy</button>
                   <button class="fpill"        role="tab" aria-selected="false" data-tab="manana">Mañana</button>
                   <button class="fpill"        role="tab" aria-selected="false" data-tab="finde">Este finde</button>
-                  <button class="fpill"        role="tab" aria-selected="false" data-tab="semana">Esta semana</button>
+                  <button class="fpill active" role="tab" aria-selected="true"  data-tab="semana">Esta semana</button>
                 </div>
               </div>
             </div>
@@ -1215,12 +1860,9 @@
               <div class="fgroup-content">
                 <p class="fgroup-label">Qué plan</p>
                 <div class="fgroup-pills">
-                  <button class="fcat">Música en vivo</button>
                   <button class="fcat">Gastronomía</button>
-                  <button class="fcat">Arte y cultura</button>
                   <button class="fcat">Talleres</button>
-                  <button class="fcat">Fiestas</button>
-                  <button class="fcat">Deporte</button>
+                  <button class="fcat">Arte y cultura</button>
                   <button class="fcat">Brunch</button>
                 </div>
               </div>
@@ -1237,8 +1879,11 @@
                   <option>Chueca</option>
                   <option>La Latina</option>
                   <option>Retiro</option>
-                  <option>Moncloa</option>
+                  <option>Chamberí</option>
                   <option>Salamanca</option>
+                  <option>Arganzuela</option>
+                  <option>Fuencarral</option>
+                  <option>Moncloa</option>
                 </select>
               </div>
             </div>
@@ -1258,84 +1903,23 @@
       <div class="inner">
         <div class="plans-header">
           <div class="plans-header-left">
-            <span class="finder-label" id="planesLabel" style="margin-bottom:0">✦ Destacados hoy</span>
+            <span class="finder-label" id="planesLabel" style="margin-bottom:0">✦ Esta semana en Madrid</span>
             <h2 class="sec-title">Planes que no te<br/>puedes perder</h2>
           </div>
-          <a href="#" class="sec-more">Ver todos los planes →</a>
+          <div class="explora-row">
+            <button class="explora-pill" id="explTabPlanes" type="button">Todos los planes →</button>
+            <button class="explora-pill" id="explTabLocales" type="button">Nuestros locales →</button>
+          </div>
+        </div>
+        <div class="plans-meta">
+          <span class="plans-count" id="planesCount"></span>
+          <button class="reset-filters-btn" id="resetFiltersBtn">✕ Quitar filtros</button>
         </div>
 
-        <div class="carousel-outer">
+        <div class="rcard-carousel-outer">
           <button class="carousel-btn" id="cPrev" aria-label="Anterior" disabled>&#8592;</button>
-          <div class="carousel-wrap">
-          <div class="carousel-track" id="ctrack">
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://plus.unsplash.com/premium_photo-1736089957576-1c6d7af4e6ba?q=80&w=774&auto=format&fit=crop" alt="Cerámica" loading="lazy"/>
-                <span class="pcard-badge">Taller</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Cerámica y vermú en Malasaña</span>
-                <span class="pcard-meta">Sáb 19:00 · Malasaña</span>
-              </div>
-            </div>
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://images.unsplash.com/photo-1548457701-c6a5aa364f49?q=80&w=1450&auto=format&fit=crop" alt="Jazz" loading="lazy"/>
-                <span class="pcard-badge">Música</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Jazz en vivo y cócteles sin carta</span>
-                <span class="pcard-meta">Vie 22:00 · Lavapiés</span>
-              </div>
-            </div>
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://images.unsplash.com/photo-1752927450610-da5f90143f58?q=80&w=774&auto=format&fit=crop" alt="Tapas" loading="lazy"/>
-                <span class="pcard-badge">Gastronomía</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Ruta de tapas secretas por La Latina</span>
-                <span class="pcard-meta">Dom 13:00 · La Latina</span>
-              </div>
-            </div>
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://images.unsplash.com/photo-1557777586-f6682739fcf3?q=80&w=870&auto=format&fit=crop" alt="Moda" loading="lazy"/>
-                <span class="pcard-badge">Pop-up</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Mercado de diseño — solo este finde</span>
-                <span class="pcard-meta">Sáb–Dom 11:00 · Chueca</span>
-              </div>
-            </div>
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=700&q=80" alt="Bici" loading="lazy"/>
-                <span class="pcard-badge">Deporte</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Ruta en bici por el Retiro</span>
-                <span class="pcard-meta">Dom 9:00 · Retiro</span>
-              </div>
-            </div>
-
-            <div class="pcard">
-              <div class="pcard-img">
-                <img src="https://images.unsplash.com/photo-1534445291134-f70b7a81f691?q=80&w=1740&auto=format&fit=crop" alt="Museo" loading="lazy"/>
-                <span class="pcard-badge">Cultura</span>
-              </div>
-              <div class="pcard-body">
-                <span class="pcard-name">Visita nocturna al Reina Sofía</span>
-                <span class="pcard-meta">Jue 19:00 · Atocha</span>
-              </div>
-            </div>
-
-          </div>
+          <div class="rcard-carousel-wrap">
+            <div class="rcard-carousel-track" id="ctrack"></div>
           </div>
           <button class="carousel-btn" id="cNext" aria-label="Siguiente">&#8594;</button>
         </div>
@@ -1397,7 +1981,7 @@
               </div>
               <label class="nl-consent">
                 <input type="checkbox" id="nlConsent" required />
-                <span>He leído y acepto la <a href="#">política de privacidad</a></span>
+                <span>He leído y acepto la <a href="#" class="priv-link">política de privacidad</a></span>
               </label>
               <p class="nl-note">Puedes darte de baja cuando quieras.</p>
             </form>
@@ -1426,7 +2010,7 @@
             <textarea class="biz-msg" id="bMessage" placeholder="Cuéntanos sobre tu local, taller o espacio — lo que quieras que sepamos." required></textarea>
             <label class="biz-consent">
               <input type="checkbox" id="bizConsent" required />
-              <span>He leído y acepto la <a href="#">política de privacidad</a></span>
+              <span>He leído y acepto la <a href="#" class="priv-link">política de privacidad</a></span>
             </label>
             <div class="biz-form-row biz-form-submit">
               <button type="submit" class="fsub">Quiero aparecer</button>
@@ -1497,6 +2081,128 @@
 
   </main>
 
+  <!-- ══ PLAN MODAL ══════════════════════════════════════════ -->
+  <div id="planModal" class="plan-modal" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <div class="plan-modal-overlay" id="planModalOverlay"></div>
+    <div class="plan-modal-panel">
+      <button class="plan-modal-close" id="planModalClose" aria-label="Cerrar">&times;</button>
+      <div class="plan-modal-hero">
+        <img id="pmImg" src="" alt="" loading="lazy" />
+        <span class="pcard-badge" id="pmBadge"></span>
+        <button class="pm-nav pm-nav-prev" id="pmPrev" aria-label="Plan anterior">&#8592;</button>
+        <button class="pm-nav pm-nav-next" id="pmNext" aria-label="Plan siguiente">&#8594;</button>
+      </div>
+      <div class="plan-modal-body">
+        <span class="plan-modal-empresa" id="pmEmpresa"></span>
+        <h2 class="plan-modal-title" id="pmTitle"></h2>
+        <div class="plan-modal-chips" id="pmChips"></div>
+        <p class="plan-modal-desc" id="pmDesc"></p>
+        <div class="pm-includes" id="pmIncludes">
+          <p class="pm-section-h">Qué incluye</p>
+          <ul id="pmIncludesContent"></ul>
+        </div>
+        <p class="pm-section-h">Dónde</p>
+        <p class="pm-address" id="pmAddress"></p>
+        <a class="pm-cta" id="pmCta" href="#" target="_blank" rel="noopener noreferrer">Ver más y reservar &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ALL PLANES PANEL ══════════════════════════════════════ -->
+  <div id="allPlanesPanel" class="all-planes-panel" role="dialog" aria-modal="true" aria-label="Todos los planes">
+
+    <div class="all-planes-header">
+      <div class="all-planes-header-inner">
+        <button class="all-planes-back" id="allPlanesClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          Volver
+        </button>
+        <div class="all-planes-title-wrap">
+          <h2 class="all-planes-title">Todos los planes</h2>
+        </div>
+        <span class="all-planes-count-badge" id="allPlanesCount">31</span>
+      </div>
+      <div class="all-planes-cats">
+        <button class="apc-btn active" data-apcat="">Todos</button>
+        <button class="apc-btn" data-apcat="gastronomia">Gastronomía</button>
+        <button class="apc-btn" data-apcat="talleres">Talleres</button>
+        <button class="apc-btn" data-apcat="arte">Arte y cultura</button>
+        <button class="apc-btn" data-apcat="brunch">Brunch</button>
+      </div>
+    </div>
+
+    <div class="all-planes-body">
+      <div class="all-planes-grid" id="allPlanesGrid"></div>
+    </div>
+
+  </div>
+
+  <!-- ══ LOCALES PANEL ════════════════════════════════════════ -->
+  <div id="localesPanel" class="all-planes-panel" role="dialog" aria-modal="true" aria-label="Nuestros locales">
+
+    <div class="all-planes-header">
+      <div class="all-planes-header-inner">
+        <button class="all-planes-back" id="localesPanelClose">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+          <span>Volver</span>
+        </button>
+        <div class="all-planes-title-wrap">
+          <h2 class="all-planes-title">Nuestros locales</h2>
+        </div>
+        <span class="all-planes-count-badge" id="localesCount">21</span>
+      </div>
+      <div class="all-planes-cats">
+        <button class="apc-lbtn active" data-lcat="">Todos</button>
+        <button class="apc-lbtn" data-lcat="gastronomia">Gastronomía</button>
+        <button class="apc-lbtn" data-lcat="talleres">Talleres</button>
+        <button class="apc-lbtn" data-lcat="arte">Arte y cultura</button>
+        <button class="apc-lbtn" data-lcat="brunch">Brunch</button>
+      </div>
+    </div>
+
+    <div class="all-planes-body">
+      <div class="all-planes-grid" id="localesGrid"></div>
+    </div>
+
+  </div>
+
+  <!-- ══ PRIVACY MODAL ═════════════════════════════════════════ -->
+  <div id="privModal" class="priv-modal" role="dialog" aria-modal="true" aria-labelledby="privTitle">
+    <div class="priv-modal-overlay" id="privModalOverlay"></div>
+    <div class="priv-modal-panel">
+      <button class="priv-modal-close" id="privModalClose" aria-label="Cerrar">&times;</button>
+      <h3 id="privTitle">Política de Privacidad</h3>
+      <p><strong>No te lo pierdas</strong> · Última actualización: junio 2026</p>
+
+      <h4>1. Responsable del tratamiento</h4>
+      <p>No te lo pierdas, con domicilio en Madrid (España). Contacto: <a href="mailto:hola@notelopierdas.es">hola@notelopierdas.es</a></p>
+
+      <h4>2. Datos que recogemos</h4>
+      <ul>
+        <li>Dirección de correo electrónico (formulario de newsletter y contacto para negocios).</li>
+        <li>Mensaje de texto libre (solo formulario de negocios).</li>
+      </ul>
+
+      <h4>3. Finalidad y base legal</h4>
+      <ul>
+        <li><strong>Newsletter:</strong> envío semanal de planes curados. Base: consentimiento (art. 6.1.a RGPD).</li>
+        <li><strong>Formulario de negocios:</strong> responder a tu consulta. Base: interés legítimo / ejecución de contrato.</li>
+      </ul>
+
+      <h4>4. Conservación de datos</h4>
+      <p>Hasta que solicites la baja o revoques tu consentimiento. Los datos de contacto de negocios se conservan mientras dure la relación comercial.</p>
+
+      <h4>5. Destinatarios</h4>
+      <p>Mailchimp (gestión de newsletter, USA — con cláusulas contractuales tipo UE) y Formspree (envío de formulario). No cedemos datos a terceros con fines comerciales.</p>
+
+      <h4>6. Tus derechos</h4>
+      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad y oposición escribiendo a <a href="mailto:hola@notelopierdas.es">hola@notelopierdas.es</a>. También puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es).</p>
+
+      <h4>7. Cookies</h4>
+      <p>Esta web usa únicamente cookies técnicas necesarias para su funcionamiento. No utilizamos cookies de seguimiento ni publicidad. Puedes desactivarlas en la configuración de tu navegador.</p>
+    </div>
+  </div>
+
   <!-- ══ FOOTER ════════════════════════════════════════════════ -->
   <footer class="bg-red">
     <div class="footer-inner">
@@ -1516,17 +2222,17 @@
         <div>
           <p class="foot-col-h">Categorías</p>
           <ul class="foot-links">
-            <li><a href="#">Talleres</a></li>
-            <li><a href="#">Gastronomía</a></li>
-            <li><a href="#">Música en vivo</a></li>
-            <li><a href="#">Pop-ups</a></li>
+            <li><a href="#planesSection" data-filter-cat="talleres">Talleres</a></li>
+            <li><a href="#planesSection" data-filter-cat="gastronomia">Gastronomía</a></li>
+            <li><a href="#planesSection" data-filter-cat="arte">Arte y cultura</a></li>
+            <li><a href="#planesSection" data-filter-cat="brunch">Brunch</a></li>
           </ul>
         </div>
         <div>
           <p class="foot-col-h">Legal</p>
           <ul class="foot-links">
-            <li><a href="#">Privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
+            <li><a href="mailto:hola@notelopierdas.es?subject=Política de privacidad">Privacidad</a></li>
+            <li><a href="mailto:hola@notelopierdas.es?subject=Política de cookies">Cookies</a></li>
             <li><a href="mailto:hola@notelopierdas.es">Contacto</a></li>
           </ul>
         </div>
@@ -1541,11 +2247,7 @@
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
           </a>
-          <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.77 0 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.13 6.29 6.34 6.34 0 0 0 12.67 0V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/>
-            </svg>
-          </a>
+          <!-- TikTok: añadir href cuando haya cuenta -->
         </div>
       </div>
     </div>
@@ -1555,6 +2257,1052 @@
 
   <script>
     'use strict';
+
+    /* ── Planes data ─────────────────────────────────────────── */
+    const PLANES = [
+
+      /* ══ WE COOK MADRID — Mercado de Chamberí, Alonso Cano 10, Local 46 ══ */
+      {
+        nombre:   'La Hora del Vermut: cata y gildas caseras',
+        empresa:  'We Cook Madrid',
+        empresaImg: 'https://wecookmadrid.com/cdn/shop/files/wecookbasics-68e8342aa4139.webp?v=1760048189&width=533',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Viernes · 19:30 · 1,5h',
+        precio:   '€48 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/horadevermut-68e83b4f65eac.webp?v=1760050012&width=533',
+        url:      'https://wecookmadrid.com/products/la-hora-del-vermut-cata-de-vermut-y-preparacion-de-gildas',
+        tiempo:   ['hoy', 'semana'],
+        desc:     'Aprende a preparar las gildas más caseras de Madrid y descubre 3 variedades de vermut diferenciadas por uva y método de producción. Una tarde llena de sabor y buena compañía en el Mercado de Chamberí.',
+        includes: ['Cata de 3 vermuts españoles', 'Preparación de gildas caseras', 'Pintxos de maridaje', 'WeCookie incluida'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Al Chile: cocina mexicana y coctelería',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2,5h',
+        precio:   '€65 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/postoleole-2-c03ccc7f-faea-46cf-b618-c8681b76a3c1-68e83866a889e.webp?v=1760049280&width=720',
+        url:      'https://wecookmadrid.com/products/al-chile-clases-de-cocina-mexicana-y-cocteleria',
+        tiempo:   ['semana'],
+        desc:     'Salsas, guacamole, tacos de autor y margaritas caseras. Un viaje a México sin salir de Chamberí con ingredientes de temporada, coctelería artesanal y muchas risas.',
+        includes: ['Guacamole y salsas caseras', 'Tacos de autor', 'Margarita artesanal incluida', 'Bebida con o sin alcohol'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Sushi: makis, temakis y nigiris',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2h',
+        precio:   '€75 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/PostOleOle_2_a947d994-7531-41e0-af2b-c2177e8834b9.jpg?v=1774604267&width=533',
+        url:      'https://wecookmadrid.com/products/sushi-clases-de-cocina-sushi-japones',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Aprende a preparar makis, temakis y nigiris desde cero: arroz de sushi, técnicas de corte de pescado fresco y salsas tradicionales japonesas. Todo lo que haces, te lo comes.',
+        includes: ['Elaboración de makis, temakis y nigiris', 'Salsas tradicionales', 'Bebida incluida', 'WeCookie'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Al Vino: tapas y cata de vinos españoles',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2h',
+        precio:   '€50 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/postoleole-355ed83d-d834-43c7-b479-19d562751cb5-68e833bd77841_43782366-5e69-4adb-8c13-00f1a1cf379f.webp?v=1760048111&width=720',
+        url:      'https://wecookmadrid.com/products/al-vino-tradicion-de-vinos-y-tapas',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Visita el Mercado de Chamberí para degustar embutidos y quesos premium, después aprende a montar tapas gourmet y a maridarlas con 3 vinos españoles de la mano de expertos.',
+        includes: ['Cata de 3 vinos españoles', 'Visita a puestos premium del mercado', 'Clase de montaje de tapas gourmet', 'Maridaje avanzado'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Baos & Dumplings: cocina asiática',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2h',
+        precio:   '€65 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/web-Postcarteles_2.jpg?v=1759259831&width=720',
+        url:      'https://wecookmadrid.com/products/dumplings',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Aprende a hacer dumplings a mano: relleno, pliegue tradicional y cocción al vapor o a la plancha. Una clase práctica de cocina asiática con degustación guiada al final.',
+        includes: ['Elaboración de dumplings desde cero', 'Técnica de pliegue tradicional', 'Degustación guiada', 'Todos los ingredientes'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Olé Olé: tapas españolas y sangría',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 3h',
+        precio:   '€75 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/postoleole-faa1574a-4c0e-4cdb-849f-67a998cb18aa-68e83d9ebd5f1.webp?v=1760050606&width=720',
+        url:      'https://wecookmadrid.com/products/ole-ole',
+        tiempo:   ['semana', 'finde'],
+        desc:     'La experiencia española más completa: recorrido por el Mercado de Chamberí con productos frescos y clase práctica de tapas y sangría. Tres horas de cocina, cultura y buena compañía.',
+        includes: ['Tour por el Mercado de Chamberí', 'Preparación de tapas clásicas', 'Sangría casera', 'Bebida y comida incluidas'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'La Pasta de la Nonna: cocina italiana',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2h',
+        precio:   '€65 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/postoleole-3-9ac4a1aa-c692-4b9c-bf47-f2576f769ebf-68e83bffebe1e.webp?v=1760050195&width=533',
+        url:      'https://wecookmadrid.com/products/la-pasta-de-la-nonna-curso-de-cocina-italiana-de-pasta',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Aprende a hacer pasta fresca italiana de distintos tipos con técnicas auténticas. Al final, degustad juntos lo que habéis preparado maridado con vinos italianos.',
+        includes: ['Elaboración de pasta fresca italiana', 'Distintos formatos de pasta', 'Maridaje con vino', 'Bebida con o sin alcohol'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Pan: panadería artesanal en Madrid',
+        empresa:  'We Cook Madrid',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2,5h',
+        precio:   '€65 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/PostOleOle_050763f9-d04c-4107-a1d2-937398c05ae3.png?v=1780660008&width=533',
+        url:      'https://wecookmadrid.com/products/pan-curso-de-panaderia-en-madrid-copia',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Domina el amasado, la fermentación y el horneado de pan artesanal. Elaborarás tres tipos: pita, hogaza rústica de avena con frutos secos y pan de semillas. Todo lo que hornees te lo llevas a casa.',
+        includes: ['3 tipos de pan artesanal', 'Técnicas de amasado y fermentación', 'Degustación final con vino', 'Te llevas los panes a casa'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+      {
+        nombre:   'Brunch Mexicano: chilaquiles y micheladas',
+        empresa:  'We Cook Madrid',
+        badge:    'Brunch',
+        cat:      'brunch',
+        zona:     'Chamberí',
+        horario:  'Consultar calendario · 2h',
+        precio:   '€50 por persona',
+        img:      'https://wecookmadrid.com/cdn/shop/files/web-postcarteles-68e840a52e52f.webp?v=1760051375&width=720',
+        url:      'https://wecookmadrid.com/products/brunch-mexicano-curso-de-cocina-mexicana-desayunos-y-brunch',
+        tiempo:   ['finde', 'semana'],
+        desc:     'El brunch más mexicano de Madrid: aprende a preparar chilaquiles auténticos y micheladas caseras con técnicas tradicionales. El plan perfecto para empezar el finde con energía y sabor.',
+        includes: ['Chilaquiles auténticos', 'Micheladas caseras', 'Técnicas de cocina mexicana', 'Todos los ingredientes'],
+        address:  'Mercado de Chamberí, Alonso Cano 10, Local 46, 28010 Madrid',
+      },
+
+      /* ══ LOLEO — C. de Valderribas, 30, 2º, Retiro ══ */
+      {
+        nombre:   'Tapas y paella: clase de mediodía con chef',
+        empresa:  'Loleo',
+        empresaImg: 'https://loleoeventos.com/wp-content/uploads/2024/01/LOGO-LOLEO-ESCUELA-DE-COCINA.png',
+        empresaLogo: true,
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Retiro',
+        horario:  'Diario · 11:00 · 3,5h',
+        precio:   '€89 por persona',
+        img:      'https://loleoeventos.com/wp-content/uploads/2024/01/cocina-loleo-6.jpg',
+        url:      'https://loleoeventos.com/en/cooking-classes-in-madrid-spain/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Aprende a cocinar croquetas de jamón, arroz negro, ensaladilla rusa y bacalao al ajillo junto a un chef profesional. Grupos de máximo 10 personas, con bebida ilimitada incluida durante toda la clase.',
+        includes: ['Vino, cerveza y refrescos ilimitados', 'Todos los ingredientes y utensilios', 'Delantal incluido', 'Recetas impresas para llevar a casa'],
+        address:  'C. de Valderribas, 30, 2ª planta, 28007 Madrid · Metro Pacífico (L1)',
+      },
+      {
+        nombre:   'Tapas y paella: clase de cena con chef',
+        empresa:  'Loleo',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Retiro',
+        horario:  'Diario · 19:00 · 3,5h',
+        precio:   '€89 por persona',
+        img:      'https://loleoeventos.com/wp-content/uploads/2024/01/cocina-loleo-6.jpg',
+        url:      'https://loleoeventos.com/en/cooking-classes-in-madrid-spain/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'La versión nocturna de la clase más popular de Madrid. Cocina croquetas, arroz negro, ensaladilla rusa y bacalao al ajillo con un chef, y cena lo que hayas preparado con vino o cerveza ilimitada.',
+        includes: ['Vino, cerveza y refrescos ilimitados', 'Todos los ingredientes y utensilios', 'Delantal incluido', 'Recetas impresas para llevar a casa'],
+        address:  'C. de Valderribas, 30, 2ª planta, 28007 Madrid · Metro Pacífico (L1)',
+      },
+
+      /* ══ COCINEA — C/ Plomo, 10, Arganzuela ══ */
+      {
+        nombre:   'Curso de paella: valenciana, marisco o arroz negro',
+        empresa:  'Cocinea',
+        empresaImg: 'https://cocinea.es/wp-content/uploads/2026/06/Senza-titolo-100-x-100-px-5-scaled.png',
+        empresaLogo: true,
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Arganzuela',
+        horario:  'Fines de semana · 11:00 · 3,5h',
+        precio:   '€80–90 por persona',
+        img:      'https://cocinea.es/wp-content/uploads/2023/02/Paella_Marisco-1-e1675423172521.jpg',
+        url:      'https://cocinea.es/producto/curso-paella/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Aprende a hacer paella de la mano de la maestra paellera María Muñoz: sofrito, caldo, punto del arroz y el socarrat perfecto. Eliges entre Valenciana, Marisco, Arroz Negro o Vegana. Comes lo que cocinas, directo de la paella.',
+        includes: ['Aperitivo con vinos Vicente Gandía', 'Bebidas durante todo el curso', 'Ensalada y crema catalana de postre', 'Diploma de paellero y delantal de recuerdo'],
+        address:  'C/ Plomo 10, 28045 Madrid · Cerca de Atocha',
+      },
+      {
+        nombre:   'Cata de jamón ibérico + coctelería para grupos',
+        empresa:  'Cocinea',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Arganzuela',
+        horario:  'Grupos privados · a consultar · 2h',
+        precio:   'Consultar precio',
+        img:      'https://cocinea.es/wp-content/uploads/2026/05/SEEDTAG-09Abr-21-scaled.jpeg',
+        url:      'https://cocinea.es/eventos-de-cocina-en-madrid/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Experiencia exclusiva para grupos: aprende a reconocer las variedades de jamón ibérico y descubre cómo maridarlas con cócteles de autor. Ideal para despedidas, cumpleaños o team building. Reserva privada a medida.',
+        includes: ['Cata guiada de jamón ibérico', 'Coctelería de autor', 'Experto jamonero y bartender', 'Espacio exclusivo para el grupo'],
+        address:  'C/ Plomo 10, 28045 Madrid · Cerca de Atocha',
+      },
+
+      /* ══ COCINA CONVERSA — Lavapiés + Carabanchel Alto ══ */
+      {
+        nombre:   'Curso básico de cocina desde cero',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'Consultar calendario · 2h/sesión',
+        precio:   'Consultar precio',
+        img:      'https://www.cocinaconversa.com/images/blog/10/foto-10-1-gr.jpg',
+        url:      'https://www.cocinaconversa.com/cocina-desde-cero',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Aprende a cocinar desde cero con técnicas básicas reales. Cada sesión de 2h es práctica y con recetas que podrás replicar sola en casa. Disponible en dos sedes: Lavapiés y Carabanchel Alto.',
+        includes: ['Ingredientes incluidos', 'Recetario completo', 'Grupo reducido', 'Degustación final'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+        empresaImg: 'https://www.cocinaconversa.com/images/LOGO-COCINA-CONVERSA.png',
+        empresaLogo: true,
+        empresaBg:  '#F26522',
+      },
+      {
+        nombre:   'Curso intermedio de cocina saludable',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'Consultar calendario · 2h/sesión',
+        precio:   'Desde €32/sesión · €210 curso completo (8 sesiones)',
+        img:      'https://www.cocinaconversa.com/images/content/courses/escuela-de-cocina-conversa2.jpg',
+        url:      'https://www.cocinaconversa.com/cocina-intermedio',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Con la instructora Belén Cofiño, aprende a cocinar de forma saludable sin renunciar al sabor. Grupo muy reducido de máx. 10 personas para una atención personalizada.',
+        includes: ['Máx. 10 personas', 'Instructora Belén Cofiño', 'Ingredientes incluidos', 'Recetario saludable'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+      },
+      {
+        nombre:   'Curso de repostería básica',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'Consultar calendario · 4 sesiones × 2h',
+        precio:   '€140 curso completo',
+        img:      'https://www.cocinaconversa.com/images/content/reposteria.jpg',
+        url:      'https://www.cocinaconversa.com/reposteria-basica',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Curso completo de repostería en 4 lecciones de 2h. Bizcochos, tartas y galletas con todos los ingredientes incluidos. Te llevas a casa todo lo que preparas.',
+        includes: ['4 sesiones × 2h', 'Todos los ingredientes', 'Te llevas tus creaciones', 'Grupo reducido'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+      },
+      {
+        nombre:   'Curso de cocina china con Carmen Hong',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'Consultar calendario · 4 sesiones × 2h',
+        precio:   '€28/sesión · €112 curso completo',
+        img:      'https://www.cocinaconversa.com/images/content/breadcrumb/courses.jpg',
+        url:      'https://www.cocinaconversa.com/cocinachina',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Aprende cocina china auténtica con Carmen Hong en 4 sesiones temáticas: sopas, tofu, dim sum y verduras/arroz. Puedes apuntarte a sesiones sueltas o al curso completo.',
+        includes: ['Instructora Carmen Hong', '4 temáticas distintas', 'Ingredientes incluidos', 'Sesiones individuales o curso completo'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+      },
+      {
+        nombre:   'Talleres privados para grupos y empresas',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'A elegir · Personalizable',
+        precio:   'Consultar',
+        img:      'https://www.cocinaconversa.com/images/content/slider/slider1.jpg',
+        url:      'https://www.cocinaconversa.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Talleres de cocina a medida para grupos privados, cumpleaños adultos, despedidas, team building y eventos de empresa. Cocina del mundo, tapas, showcooking… tú decides el plan.',
+        includes: ['Totalmente personalizable', 'Cocina del mundo o tapas', 'Team building o cumpleaños', 'Dos localizaciones disponibles'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+      },
+      {
+        nombre:   'Cumpleaños cocinando (infantil)',
+        empresa:  'Cocina Conversa',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Lavapiés',
+        horario:  'Tardes a partir de 17:30 · Fines de semana 11:00 o 17:00 · 2h',
+        precio:   'Desde €164 (hasta 8 niños)',
+        img:      'https://www.escueladecocinaconversa.com/web/image/1244-99ff34db/pasta-fresca-conversa.webp',
+        url:      'https://www.escueladecocinaconversa.com/cumpleanos-cocinando',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'El cumpleaños más original para niños desde 6 años. 75-90 min de taller cocinando su plato favorito, tarta personalizada, cóctel y soplo de velas. 10 menús a elegir: pizza, hamburguesas, sushi, pasta, croquetas...',
+        includes: ['Desde 6 años', 'Tarta personalizada incluida', '10 menús a elegir', 'Monitor + ayudante incluidos'],
+        address:  'Calle Embajadores, 41, Local 47, 28012 Madrid · Av. Carabanchel Alto, 62, 28044 Madrid',
+      },
+
+      /* ══ NOSSA CERÁMICA — C/ Doctor Castelo, 41, Retiro ══ */
+      {
+        nombre:   'Cerámica y vino — cierra la semana creando',
+        empresa:  'Nossa Cerámica',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Retiro',
+        horario:  'Viernes 3, 10 y 17 jul · 18:00 · 2,5h',
+        precio:   '€70/persona (todo incluido)',
+        img:      'https://i0.wp.com/nossaceramica.es/wp-content/uploads/team-building-ceramica.png?resize=1878%2C1080',
+        url:      'https://nossaceramica.es/taller-de-ceramica-y-vino-madrid/',
+        tiempo:   ['semana'],
+        desc:     'Cierra el viernes con las manos en el barro. Dos horas y media creando hasta 2 piezas propias —tazas, cuencos, platos— con copa de vino o cerveza y snacks incluidos. Máx. 10 personas, sin experiencia necesaria.',
+        includes: ['Barro, herramientas, pigmentos y esmalte', 'Hasta 2 piezas por persona', 'Copa de vino/cerveza o bebida sin alcohol', 'Snacks · Horneado y cocción incluidos'],
+        address:  'Calle Doctor Castelo, 41, Local 3, 28009 Madrid (Retiro) · L–V 17–21h, Sáb 11–15h',
+        empresaImg: 'https://i0.wp.com/nossaceramica.es/wp-content/uploads/NOSSA-blanco-07.png?fit=396%2C252',
+        empresaLogo: true,
+        empresaBg:  '#B79F91',
+      },
+      {
+        nombre:   'Cerámica y brunch — crea tu set de desayuno',
+        empresa:  'Nossa Cerámica',
+        badge:    'Brunch',
+        cat:      'brunch',
+        zona:     'Retiro',
+        horario:  'Sábados 4, 11, 18 y 25 jul · 11:00 · 2,5h',
+        precio:   'Consultar precio',
+        img:      'https://i0.wp.com/nossaceramica.es/wp-content/uploads/pexels-cup-of-couple-7302520.jpg?fit=1280%2C853&ssl=1',
+        url:      'https://nossaceramica.es/taller-de-ceramica-y-brunch-en-madrid/',
+        tiempo:   ['finde'],
+        desc:     'Mañana de sábado creando tu propio set de desayuno —taza, plato o cuenco— mientras disfrutas de un brunch variado con opciones dulces y saladas. Grupo reducido de máx. 10 personas, sin experiencia previa.',
+        includes: ['Brunch variado dulce y salado', 'Barro, herramientas, pigmentos y esmalte', 'Hasta 2 piezas horneadas', 'Máx. 10 personas'],
+        address:  'Calle Doctor Castelo, 41, Local 3, 28009 Madrid (Retiro) · L–V 17–21h, Sáb 11–15h',
+      },
+      {
+        nombre:   'Taller de pintar tazas',
+        empresa:  'Nossa Cerámica',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Retiro',
+        horario:  'Sin fechas programadas · Consultar próximas',
+        precio:   '€65/persona (todo incluido)',
+        img:      'https://i0.wp.com/nossaceramica.es/wp-content/uploads/pexels-gustavo-fring-4241337.jpg?w=1280&ssl=1',
+        url:      'https://nossaceramica.es/taller-de-ceramica-crea-y-pinta-tu-propia-taza/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Pinta tu taza con los diseños y colores que más te gusten. Un plan creativo, rápido y perfecto para regalar o para ti. Sin ninguna experiencia previa necesaria.',
+        includes: ['Taza de cerámica', 'Pinturas y pinceles', 'Guía del artista', 'Pieza cocida y lista para llevar'],
+        address:  'Calle Doctor Castelo, 41, Local 3, 28009 Madrid (Retiro) · L–V 17–21h, Sáb 11–15h',
+      },
+      {
+        nombre:   'Cerámica y astrología',
+        empresa:  'Nossa Cerámica',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Retiro',
+        horario:  'Sin fechas programadas · Consultar próximas',
+        precio:   'Consultar precio',
+        img:      'https://i0.wp.com/nossaceramica.es/wp-content/uploads/arcilla_churros-scaled.jpeg?fit=2560%2C1152&ssl=1',
+        url:      'https://nossaceramica.es/taller-de-ceramica-y-astrologia/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Barro y cosmos: crea una pieza inspirada en tu signo del zodiaco mientras exploráis astrología en grupo. El taller más singular de Nossa Cerámica, disponible en fechas especiales.',
+        includes: ['Materiales de cerámica', 'Bebida incluida', 'Guía de astrología', 'Pieza cocida incluida'],
+        address:  'Calle Doctor Castelo, 41, Local 3, 28009 Madrid (Retiro) · L–V 17–21h, Sáb 11–15h',
+      },
+
+      /* ══ BARRO STUDIO — C/ Jesús del Valle, 28, Malasaña ══ */
+      {
+        nombre:   'Clay Nights: cerámica, bebida y snacks',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Vie y Sáb · 20:00 · 3, 4, 10, 11, 17 y 18 jul',
+        precio:   '€48/persona (todo incluido)',
+        img:      'https://barro.studio/wp-content/uploads/2024/07/Screenshot-2025-07-28-at-9.22.51.png',
+        url:      'https://barro.studio/producto/clay-nights/',
+        tiempo:   ['semana', 'finde'],
+        desc:     'Noche de barro con vino espumoso o infusión fría, fruta y frutos secos. Elige tu pieza —taza, plato o cuenco— y crea mientras desconectas. Snacks veganos y sin gluten. Solo mayores de 18.',
+        includes: ['Materiales, esmaltes y cocción', 'Bebida + fruta y frutos secos', 'Snacks veganos y sin gluten', 'Pieza lista en ~4 semanas'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña)',
+        empresaImg: 'https://barro.studio/wp-content/uploads/2024/07/Logo.png',
+        empresaLogo: true,
+        empresaBg:  '#FBFAF1',
+        empresaImgFilter: 'brightness(0) invert(1) brightness(0.659)',
+      },
+      {
+        nombre:   'Clay Lattes: café, barro y mañana creativa',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Sábados · 11:30 · 2h · 4, 11 y 18 jul',
+        precio:   '€46/sesión · €150 bono 4 sesiones',
+        img:      'https://barro.studio/wp-content/uploads/2025/04/wed.png',
+        url:      'https://barro.studio/producto/clay-lattes/',
+        tiempo:   ['finde'],
+        desc:     'Sábados por la mañana tomando café o té frío, charlando y modelando una pieza de barro. El plan más relajado de Malasaña. Todos los niveles bienvenidos, instrucción en español e inglés.',
+        includes: ['Café, fruta y algo dulce', 'Materiales, esmaltes y cocción', 'Todos los niveles', 'Bono 4 sesiones válido 2 meses'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña)',
+      },
+      {
+        nombre:   'Clases de cerámica modelado — construcción manual',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Mié–Vie 11:00 · Mié–Jue 17:30 · Jue 19:30 · 2h/sesión',
+        precio:   '€40 clase suelta · €80 bono 2 · €145/mes (4 sesiones)',
+        img:      'https://barro.studio/wp-content/uploads/2024/09/PHOTO-2025-05-24-19-56-52.jpg',
+        url:      'https://barro.studio/producto/clases-de-ceramica-modelado-construccion-manual/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     'Moldea arcilla con tus manos y una tacita de té incluida. Crea lo que quieras: tú decides el proyecto, el instructor se adapta a tu nivel. Sin sorpresas: materiales, esmaltes y cocciones incluidos sin coste extra.',
+        includes: ['Clase, materiales, esmaltes y cocciones', 'Tacita de té incluida', 'Todos los niveles', 'Bono mensual: 4 clases en 3 meses'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña) · L–J 17:30–21:30, Mié–Vie 11–13h',
+      },
+      {
+        nombre:   'Clases de torno — cerámica en rueda',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'L–J tardes · 17:30–19:30 o 19:30–21:30 · 2h/sesión',
+        precio:   '€78 bono prueba (2 clases) · €145/mes · €94 curso tetera/caja',
+        img:      'https://barro.studio/wp-content/uploads/2025/07/wefwefef.png',
+        url:      'https://barro.studio/producto/clases-de-ceramica-torno/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     'Aprende a centrar, abrir y levantar arcilla en el torno. Grupos de máx. 8 personas para clases muy personalizadas. Cursos específicos de tetera (nivel medio) y caja (iniciación) disponibles.',
+        includes: ['Materiales, esmaltes y cocciones', 'Grupo reducido máx. 8', 'Bono prueba 2 clases para empezar', 'Cursos de tetera y caja (3 sesiones)'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña) · L–J 17:30–21:30',
+      },
+      {
+        nombre:   'Clases infantiles de cerámica',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Mar y Mié · 17:30–19:30 · 2h',
+        precio:   '€30 clase suelta · €170 bono 8 clases',
+        img:      'https://barro.studio/wp-content/uploads/2024/07/veddc-scaled.png',
+        url:      'https://barro.studio/producto/clases-infantiles-de-ceramica/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     'Niños de 4 a 11 años crean mundos, personajes y objetos con terracota a su ritmo. Pintan, decoran y ven sus piezas cobrar vida tras el horneado. También disponible para cumpleaños infantiles en grupo.',
+        includes: ['Edades 4–11 años', 'Materiales, esmaltes y horneado', 'Cumpleaños en grupo disponible', 'Instrucción en español e inglés'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña)',
+      },
+      {
+        nombre:   'Studio cowork — acceso libre al taller',
+        empresa:  'Barro Studio',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'L–J 17:30–21:30 · Mié–Vie 11:00–13:00',
+        precio:   '€52 (5h · 3kg arcilla) · €175 (20h · 12,5kg arcilla)',
+        img:      'https://barro.studio/wp-content/uploads/2024/09/99b016d3-c3c0-4b61-9d1c-b050931c5089-e1753820948918.jpg',
+        url:      'https://barro.studio/producto/studio-cowork-taller/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     'Acceso libre al estudio para ceramistas independientes. Arcilla, herramientas, esmaltes y cocciones incluidos. Bono de 5h o 20h con validez 1–2 meses. Reserva necesaria solo para el torno o sesiones de mañana.',
+        includes: ['Arcilla, herramientas y esmaltes', 'Cocciones incluidas', 'Bono 5h o 20h', 'Experiencia cerámica requerida'],
+        address:  'Calle Jesús del Valle 28, 28004 Madrid (Malasaña) · L–J 17:30–21:30, Mié–Vie 11–13h',
+      },
+
+      /* ══ AMASARTE — C/ Minas 6, Malasaña (Metro Noviciado) ══ */
+      {
+        nombre:   'Clases mensuales de cerámica artística',
+        empresa:  'Amasarte',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'L y J: 12:30, 17:00 o 19:30 · Mar–Vie: 17:00 o 19:30 · 2h/semana',
+        precio:   '€100/mes',
+        img:      'https://amasarte.es/wp-content/uploads/2023/11/amasarte-curso-taza-fin-de-semana.jpg',
+        url:      'https://amasarte.es/clases-mensuales-de-ceramica-artistica-y-alfareria/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     '13 años en Malasaña. Una clase semanal de 2h donde aprendes cerámica artística a tu propio ritmo, a iniciación. Técnicas personalizadas según tu proyecto, con instructora siempre presente.',
+        includes: ['Materiales y arcilla', 'Acceso a hornos del estudio', 'Instructora en cada sesión', 'Todos los niveles bienvenidos'],
+        address:  'C/ Minas nº6, bajo derecha, 28004 Madrid (Malasaña · Metro Noviciado)',
+        empresaImg: 'https://amasarte.es/wp-content/uploads/2022/11/Logo-Amasarte.png',
+        empresaLogo: true,
+        empresaBg:  '#FFFFFF',
+      },
+      {
+        nombre:   'Clases mensuales de alfarería en torno',
+        empresa:  'Amasarte',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'L y J: 12:30, 17:00 o 19:30 · Mar–Vie: 17:00 o 19:30 · 2h/semana',
+        precio:   '€105/mes',
+        img:      'https://amasarte.es/wp-content/uploads/2024/08/clases-de-ceramica-art-y-alf-mensuales2.png',
+        url:      'https://amasarte.es/clases-mensuales-de-ceramica-artistica-y-alfareria/',
+        tiempo:   ['hoy', 'manana', 'semana'],
+        desc:     'Aprende a trabajar el torno de alfarero para desconectar del mundo exterior. Desde centrar la arcilla hasta levantar cuencos y jarras. Clases de iniciación con instructora experta, un día a la semana.',
+        includes: ['Arcilla y esmaltes', 'Acceso a torno individual', 'Instructora experta en torno', 'Piezas horneadas incluidas'],
+        address:  'C/ Minas nº6, bajo derecha, 28004 Madrid (Malasaña · Metro Noviciado)',
+      },
+      {
+        nombre:   'Cursos de fin de semana y eventos grupales',
+        empresa:  'Amasarte',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Fines de semana · Consultar calendario',
+        precio:   'Consultar precio',
+        img:      'https://amasarte.es/wp-content/uploads/2022/11/Herramientas-Amasarte.jpg',
+        url:      'https://amasarte.es/taller-de-ceramica-y-alfareria-para-eventos/',
+        tiempo:   ['finde'],
+        desc:     'Cursos de fin de semana de cerámica y alfarería para adultos, niños y familias. También talleres para grupos privados: cumpleaños, despedidas, team building y reuniones. Para menos de 10 hasta más de 20 personas.',
+        includes: ['Adultos, niños y familias', 'Grupos privados a medida', 'En el taller o en tu espacio (Madrid)', 'Presupuesto sin compromiso'],
+        address:  'C/ Minas nº6, bajo derecha, 28004 Madrid (Malasaña · Metro Noviciado)',
+      },
+
+      /* ══ HILARIO STUDIO POTTERY — Malasaña ══ */
+      {
+        nombre:   'Experiencia con la cerámica — primera vez',
+        empresa:  'Hilario Studio Pottery',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Sábados · 10:00 · 2h',
+        precio:   '€55',
+        img:      'https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.hilario.store/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Tu primer encuentro con la cerámica en un estudio pensado para hacértelo fácil. Café Nespresso, música relajante y un instructor que te guía desde cero. Cero estrés, cien por cien satisfacción. Engobes premium incluidos.',
+        includes: ['Todo el material incluido', 'Café o infusión de bienvenida', 'Instructor dedicado', 'Pieza cocida lista en 2 semanas'],
+        address:  'Estudio en Malasaña, Madrid — dirección exacta al confirmar reserva vía hilario.store',
+      },
+      {
+        nombre:   'Crea tu propia maceta de cerámica',
+        empresa:  'Hilario Studio Pottery',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Domingos · 11:00 · 2h',
+        precio:   '€55',
+        img:      'https://images.unsplash.com/photo-1618824834718-890908ef5e3e?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.hilario.store/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Diseña y modela tu maceta perfecta: forma, textura, colores. Una pieza que acabará dando vida a tu planta favorita. El domingo más productivo y creativo de tu vida, con bebida incluida.',
+        includes: ['Material y engobes premium', 'Bebida incluida', 'Guía paso a paso', 'Pieza cocida y lista para recoger'],
+        address:  'Estudio en Malasaña, Madrid — dirección exacta al confirmar reserva vía hilario.store',
+      },
+      {
+        nombre:   'Taller Kintsugi: repara con oro',
+        empresa:  'Hilario Studio Pottery',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Malasaña',
+        horario:  'Sábados · 16:00 · 2,5h',
+        precio:   '€90',
+        img:      'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.hilario.store/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'El arte japonés de reparar lo roto con oro. Trae tu pieza favorita (o usa una del estudio) y aprende a convertir las grietas en oro. Una sesión meditativa sobre la belleza de lo imperfecto.',
+        includes: ['Materiales de kintsugi incluidos', 'Pieza de cerámica de estudio disponible', 'Polvo de oro auténtico', 'Bebida de bienvenida'],
+        address:  'Estudio en Malasaña, Madrid — dirección exacta al confirmar reserva vía hilario.store',
+      },
+      {
+        nombre:   'Cerámica & Brunch — mañana creativa',
+        empresa:  'Hilario Studio Pottery',
+        badge:    'Brunch',
+        cat:      'brunch',
+        zona:     'Malasaña',
+        horario:  'Domingos · 10:00 · 3h',
+        precio:   '€85',
+        img:      'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.hilario.store/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Tres horas de brunch y cerámica para empezar el domingo como merece. Tostadas, zumos, café y tus manos en el barro. El plan más instagrameable y satisfactorio del barrio.',
+        includes: ['Brunch completo', 'Material de cerámica', 'Vino o cava de bienvenida', 'Pieza cocida en 2 semanas'],
+        address:  'Estudio en Malasaña, Madrid — dirección exacta al confirmar reserva vía hilario.store',
+      },
+
+      /* ══ APPÉTIT CERAMICS — C/ Sauce 3, Fuencarral ══ */
+      {
+        nombre:   'Taller de cerámica puntual en Madrid',
+        empresa:  'Appétit Ceramics',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Fuencarral',
+        horario:  'Fines de semana · 2h',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1565196490660-0cce44536a67?w=600&auto=format&fit=crop&q=80',
+        url:      'https://appetitceramics.com/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Un taller de cerámica de una sola sesión para los que quieren probar sin compromisos. Sin saber nada de cerámica, en dos horas te llevas tu primera pieza hecha a mano. Súper recomendable para parejas y grupos de amigos.',
+        includes: ['Arcilla y herramientas', 'Instructor en todo momento', 'Pieza cocida lista para recoger', 'Sin experiencia necesaria'],
+        address:  'Calle Sauce 3, 28016 Madrid (Fuencarral)',
+      },
+      {
+        nombre:   'Taller de velas y cerámica — tarde de calma',
+        empresa:  'Appétit Ceramics',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Fuencarral',
+        horario:  'Sábados · 16:00 · 2h',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1516981442399-a91139e20ff8?w=600&auto=format&fit=crop&q=80',
+        url:      'https://appetitceramics.com/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Combina cerámica y velas en una tarde de pura calma. Modela un candelabro de arcilla y aprende a hacer velas de soja perfumadas para llevarte a casa. El plan más relajante del norte de Madrid.',
+        includes: ['Arcilla y herramientas', 'Kit de velas de soja', 'Fragancias a elegir', 'Todo lo que hagas es tuyo'],
+        address:  'Calle Sauce 3, 28016 Madrid (Fuencarral)',
+      },
+
+      /* ══ HOY PINTO CERÁMICA — Fuencarral / Montecarmelo ══ */
+      {
+        nombre:   'Pinta cerámica a tu aire — sin reserva',
+        empresa:  'Hoy Pinto Cerámica',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Fuencarral',
+        horario:  'Abierto todos los días',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&auto=format&fit=crop&q=80',
+        url:      'http://hoypintoceramica.es/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Entra cuando quieras, pinta lo que quieras. Más de 100 modelos de cerámica para personalizar con tus propios colores. Asesoramiento técnico incluido, sin necesidad de saber nada de pintura. El plan más libre de Madrid.',
+        includes: ['Pieza de cerámica a elegir', 'Pinturas y pinceles', 'Asesoramiento incluido', 'Café o té mientras pintas'],
+        address:  'Calle Monasterio de El Paular 79, Montecarmelo, Madrid',
+      },
+      {
+        nombre:   'Tarde de cerámica en grupo — ven con amigas',
+        empresa:  'Hoy Pinto Cerámica',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Fuencarral',
+        horario:  'Todos los días · grupos desde 4 personas',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&auto=format&fit=crop&q=80',
+        url:      'http://hoypintoceramica.es/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Reserva la sala exclusiva para tu grupo de amigas, despedida o cumpleaños. Pinta cerámica, ríete mucho y llévate algo único hecho con tus manos. El equipo lo prepara todo para que solo tengáis que disfrutar.',
+        includes: ['Sala exclusiva para el grupo', 'Piezas de cerámica a elegir', 'Material completo', 'Opción de bebida incluida'],
+        address:  'Calle Monasterio de El Paular 79, Montecarmelo, Madrid',
+      },
+
+      /* ══ PAINT AND SIP MADRID — Chueca ══ */
+      {
+        nombre:   'Paint & Sip: La Noche Estrellada de Van Gogh',
+        empresa:  'Paint and Sip Madrid',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Chueca',
+        horario:  'Sábados · 19:00 · 2h · copa incluida',
+        precio:   'Desde €35',
+        img:      'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&auto=format&fit=crop&q=80',
+        url:      'https://vestalab.es/paint-and-sip-madrid/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Pinta La Noche Estrellada de Van Gogh con una copa en mano. Un instructor te guía paso a paso para que tu versión quede increíble aunque nunca hayas pintado. Vino incluido, no hace falta talento — solo ganas de pasarlo bien.',
+        includes: ['Copa de vino o cava incluida', 'Lienzo, pinceles y acrílicos', 'Instructor profesional step-by-step', 'Tu cuadro para llevar a casa'],
+        address:  'Zona Chueca, Madrid — dirección exacta al confirmar reserva vía WhatsApp +34 685 436 995',
+      },
+      {
+        nombre:   'Paint & Sip: El Árbol de la Vida de Klimt',
+        empresa:  'Paint and Sip Madrid',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Chueca',
+        horario:  'Viernes · 19:00 · 2h · copa incluida',
+        precio:   'Desde €35',
+        img:      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&auto=format&fit=crop&q=80',
+        url:      'https://vestalab.es/paint-and-sip-madrid/',
+        tiempo:   ['hoy', 'semana'],
+        desc:     'El cuadro más dorado de Klimt en tu lienzo. Un viernes de arte, vino y compañía en Chueca. El instructor te lleva de la mano para que te sorprendas de lo que puedes crear. 100% apto para no artistas.',
+        includes: ['Copa de vino incluida', 'Lienzo, pinceles y pinturas doradas', 'Instructor profesional', 'Tu cuadro para llevar a casa'],
+        address:  'Zona Chueca, Madrid — dirección exacta al confirmar reserva vía WhatsApp +34 685 436 995',
+      },
+      {
+        nombre:   'Paint & Sip: Almendros en Flor de Van Gogh',
+        empresa:  'Paint and Sip Madrid',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Chueca',
+        horario:  'Sábados · 17:00 · 2h · copa incluida',
+        precio:   'Desde €35',
+        img:      'https://images.unsplash.com/photo-1582550945154-66ea8fff25e1?w=600&auto=format&fit=crop&q=80',
+        url:      'https://vestalab.es/paint-and-sip-madrid/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Los ramos de almendros de Van Gogh sobre fondo azul cielo. Una sesión de acrílicos y vino para una tarde de sábado perfecta. Relajante, creativa y con tu obra para colgar en casa.',
+        includes: ['Copa de vino o refresco incluida', 'Lienzo y pinturas acrílicas', 'Instructor step-by-step', 'Tu cuadro para llevar a casa'],
+        address:  'Zona Chueca, Madrid — dirección exacta al confirmar reserva vía WhatsApp +34 685 436 995',
+      },
+
+      /* ══ PINTA EN COPAS — C/ de Velarde, 3, Malasaña ══ */
+      {
+        nombre:   'Pinta tu cerámica favorita en Malasaña',
+        empresa:  'Pinta en Copas',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Malasaña',
+        horario:  'Abierto todos los días',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&auto=format&fit=crop&q=80',
+        url:      'https://pintaencopas.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Un ceramicafé vintage en pleno Malasaña donde entras, eliges entre más de 100 modelos de cerámica y pintas a tu ritmo con un café o té en mano. Sin horarios fijos, sin reserva obligatoria. El plan más espontáneo del barrio.',
+        includes: ['Pieza de cerámica a elegir', 'Pinturas, pinceles y plantillas', 'Café o té incluido', 'Pieza horneada lista en 5–6 días'],
+        address:  'Calle de Velarde, 3, 28004 Madrid (Malasaña)',
+      },
+      {
+        nombre:   'Tarde temática de pintura cerámica',
+        empresa:  'Pinta en Copas',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Malasaña',
+        horario:  'Sábados · 17:00 · 2h',
+        precio:   'Consultar precio',
+        img:      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&auto=format&fit=crop&q=80',
+        url:      'https://pintaencopas.com/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'Cada sábado una temática diferente: jardín botánico, arte abstracto, cerámica japonesa... Pinta tu pieza guiada por el estilo del día con ayuda del equipo. Un plan para los que quieren inspirarse y crear algo único.',
+        includes: ['Pieza de cerámica incluida', 'Guía temática', 'Pinturas especializadas', 'Bebida incluida'],
+        address:  'Calle de Velarde, 3, 28004 Madrid (Malasaña)',
+      },
+
+      /* ══ RELIGION COFFEE — C. de María de Molina, 24, Chamberí ══ */
+      {
+        nombre:   'Café de especialidad y wellness drinks',
+        empresa:  'Religion Coffee',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'L–V 8:00–20:00 · S 9:00–20:00 · D 9:00–18:00',
+        precio:   'Desde €4',
+        img:      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80',
+        url:      'https://religioncoffeeshop.com/en',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Los pioneros del wellness café en Europa. Coffee shop de especialidad en Chamberí donde el café de origen único convive con bebidas funcionales: adaptógenos, colágeno y smoothies de temporada con ingredientes locales de kilómetro cero. Sin publicidad, solo producto de verdad.',
+        includes: ['Café de especialidad de origen único', 'Bebidas funcionales y adaptogens', 'Menú de comida local de temporada', 'Espacio reservable para grupos'],
+        address:  'C. de María de Molina, 24, 28006 Madrid (Chamberí) · También en: Méndez Álvaro 61 y República Argentina 7',
+      },
+
+      /* ══ TOMA CAFÉ — C/ Palma, 49, Malasaña ══ */
+      {
+        nombre:   'Café de especialidad tostado en Madrid',
+        empresa:  'Toma Café',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Malasaña',
+        horario:  'Todos los días · 8:00–20:00',
+        precio:   'Desde €3',
+        img:      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&auto=format&fit=crop&q=80',
+        url:      'https://toma.cafe/en',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Una de las primeras tostadoras de especialidad de Madrid, con más de una década en Malasaña. Su filosofía: compartir una imagen sensorial del origen y dejar que la dulzura natural del café hable sola. Tres locales en Madrid, un solo estándar. El tercero, con Proper Sound, también es sala de música.',
+        includes: ['Café de origen único tostado en Madrid', 'Variedad de métodos de extracción', 'Granos y suscripciones para llevar', 'Programa de formación barista'],
+        address:  'C/ Palma 49, 28004 Madrid (Malasaña) · También: C/ Santa Feliciana 5 (Chamberí) y C/ Raimundo Lulio 16',
+      },
+
+      /* ══ OJALÁ CAFÉ — C/ San Andrés, 1, Malasaña ══ */
+      {
+        nombre:   'Brunch en la playa de Malasaña',
+        empresa:  'Ojalá Café',
+        badge:    'Brunch',
+        cat:      'brunch',
+        zona:     'Malasaña',
+        horario:  'L–V 9:00–00:00 · S 9:00–1:30 · D 9:00–00:00',
+        precio:   'Desde €12',
+        img:      'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&auto=format&fit=crop&q=80',
+        url:      'https://grupolamusa.com/en/restaurant-ojala/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'La playa de Malasaña. Desayuno, brunch hasta tarde y cócteles a cualquier hora, con arena de verdad bajo los pies y una vibra que no encontrarás en ningún otro sitio. Mesas, sofás, sótano con ambiente diferenciado. La primera cita perfecta o el brunch más inesperado del barrio.',
+        includes: ['Brunch disponible hasta las 17:00', 'Cócteles a cualquier hora del día', 'Sótano con ambiente de bar íntimo', 'Menú del día disponible entre semana'],
+        address:  'Calle de San Andrés, 1, Centro, 28004 Madrid (Malasaña)',
+      },
+
+      /* ══ LA BICICLETA CAFÉ — Plaza San Ildefonso, 9, Malasaña ══ */
+      {
+        nombre:   'Café, brunch y bici en Plaza San Ildefonso',
+        empresa:  'La Bicicleta Café',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Malasaña',
+        horario:  'Todos los días · 10:00–00:00',
+        precio:   'Desde €4',
+        img:      'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.labicicletacafe.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Un icono de Malasaña desde hace más de diez años. Café de especialidad recién tostado, brunch hasta tarde, vino español y cócteles al atardecer rodeado de bicicletas vintage y luz natural. Reconocido por Condé Nast Traveler y TimeOut. El coworking más auténtico de la plaza.',
+        includes: ['Café de especialidad recién tostado', 'Brunch y repostería casera todo el día', 'Vino y cócteles de tarde', 'Espacio coworking sin reserva previa'],
+        address:  'Plaza de San Ildefonso 9, 28004 Madrid (Malasaña)',
+      },
+
+      /* ══ CASA NEUTRALE — C/ Regueros, 13, Las Salesas ══ */
+      {
+        nombre:   'Mediterranean coffee & wine en Las Salesas',
+        empresa:  'Casa Neutrale',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chueca',
+        horario:  'L–V 8:30–20:00 · S–D 9:30–20:00',
+        precio:   'Desde €4',
+        img:      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.casaneutrale.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'El espacio que define "Mediterranean Urban Habits": café por la mañana, vino por la tarde y música cuando toca. Tres locales en Madrid con la misma filosofía — picoteo perfecto, diseño cuidado y una atmósfera que invita a quedarse mucho más de lo planeado. También tienen wine bar nocturno.',
+        includes: ['Café de especialidad de mañana', 'Carta de vinos y coctelería de tarde', 'Menú de picoteo mediterráneo', 'Wine bar en horario nocturno (jue–sáb)'],
+        address:  'Calle de Regueros, 13, 28004 Madrid (Las Salesas · Chueca) · También en Plaza Cataluña y Justicia',
+      },
+
+      /* ══ JADE MATCHA — C/ Conde de Xiquena, 14, Justicia ══ */
+      {
+        nombre:   'Matcha y arte japonés en Justicia',
+        empresa:  'Jade Matcha',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chueca',
+        horario:  'Todos los días · 10:00–19:00',
+        precio:   'Desde €5',
+        img:      'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&auto=format&fit=crop&q=80',
+        url:      'https://jadematchagallery.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Más que un café: una galería de estilo de vida donde el antiguo ritual del matcha se funde con el diseño contemporáneo. Barra metálica, atmósfera inmersiva y bebidas de firma como el Dulce de Leche Matcha o el Cinnamon Honey. Tradición japonesa en el corazón de Justicia.',
+        includes: ['Matcha ceremonial de origen japonés', 'Bebidas de firma exclusivas', 'Ambiente galería de arte y diseño', 'Catering y hosting de eventos'],
+        address:  'C/ Conde de Xiquena 14, 28004 Madrid (Justicia · Chueca) · También en Paseo de la Castellana 259E',
+      },
+
+      /* ══ BRIO ATELIER — C. de Moratín, 9, Las Letras ══ */
+      {
+        nombre:   'Pinta tu cerámica favorita en Las Letras',
+        empresa:  'Brio Atelier',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Lavapiés',
+        horario:  'L–J 18:45–21:15 · V–D 11:00–21:00',
+        precio:   'Desde €15',
+        img:      'https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.brioatelier.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Un oasis creativo en el barrio de Las Letras. Elige entre más de 18 modelos de cerámica —tazas, cuencos, platos, figuras— y píntalos a tu gusto mientras te tomas algo. Cada sesión dura unas dos horas y te vas con tu pieza lista para hornear. Sin experiencia necesaria, con mucho resultado.',
+        includes: ['Pieza de cerámica a elegir (€15–45)', 'Pinturas, pinceles y plantillas incluidos', 'Bebidas y snacks disponibles', 'Pieza horneada y lista para recoger en días'],
+        address:  'C. de Moratín, 9, 28014 Madrid (Las Letras) · También en C. Amor de Dios 8',
+      },
+      {
+        nombre:   'Tarde creativa: pinta cerámica con amigas',
+        empresa:  'Brio Atelier',
+        badge:    'Arte y cultura',
+        cat:      'arte',
+        zona:     'Lavapiés',
+        horario:  'V–D 11:00–21:00 · sin reserva',
+        precio:   'Desde €15',
+        img:      'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&auto=format&fit=crop&q=80',
+        url:      'https://www.brioatelier.com/',
+        tiempo:   ['finde', 'semana'],
+        desc:     'El plan perfecto para el finde: tú, tus amigas y un trozo de cerámica en blanco esperando color. Ambiente relajado, música de fondo y un equipo que os ayuda en todo. Grupos de 2 a 8 personas. Viernes y fines de semana con horario extendido — sin reserva previa.',
+        includes: ['Pieza de cerámica a elegir', 'Acceso a toda la colección de pinceles', 'Bebida disponible en el espacio', 'Opción de cocción express disponible'],
+        address:  'C. de Moratín, 9, 28014 Madrid (Las Letras)',
+      },
+
+      /* ══ MUCHACHA CAFÉ — C/ García de Paredes, 22, Chamberí ══ */
+      {
+        nombre:   'Taller de vidrio: pinta tu copa con cóctel',
+        empresa:  'Muchacha Café',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Chamberí',
+        horario:  'Eventos puntuales · 19:00 · 2h',
+        precio:   '€20–30 por pieza',
+        img:      'https://images.unsplash.com/photo-1516981442399-a91139e20ff8?w=600&auto=format&fit=crop&q=80',
+        url:      'https://muchachacafe.com/',
+        tiempo:   ['semana', 'finde'],
+        desc:     'El plan más original de Chamberí: elige tu copa, vaso o tazón de vidrio, escoge tus colores y dale vida mientras tomas un margarita o una copa de vino. Flores, aromas y un espacio lleno de creatividad en García de Paredes. "Brush & Margaritas" es la noche que no te puedes perder.',
+        includes: ['Pieza de vidrio a elegir (€20–30)', 'Pinturas y materiales completos', 'Bebida de bienvenida incluida', 'Taller guiado por el equipo de Muchacha'],
+        address:  'Calle García de Paredes, 22, 28010 Madrid (Chamberí)',
+      },
+      {
+        nombre:   'Café, flores y estudio creativo en Chamberí',
+        empresa:  'Muchacha Café',
+        badge:    'Gastronomía',
+        cat:      'gastronomia',
+        zona:     'Chamberí',
+        horario:  'M–V 8:30–21:00 · S–D 10:00–21:00',
+        precio:   'Desde €3',
+        img:      'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&auto=format&fit=crop&q=80',
+        url:      'https://muchachacafe.com/',
+        tiempo:   ['hoy', 'manana', 'finde', 'semana'],
+        desc:     'Un espacio que combina café de especialidad, vinos de autor, arreglos florales de temporada y coworking matutino. El rincón más bonito de Chamberí, donde cada esquina está pensada para quedarte. Además, tiene talleres de vidrio, tarot y actividades creativas que cambian cada semana.',
+        includes: ['Café de especialidad y pequeña carta', 'Carta de vinos de autor', 'Flores de temporada para llevar', 'Coworking disponible por las mañanas (L–V)'],
+        address:  'Calle García de Paredes, 22, 28010 Madrid (Chamberí)',
+      },
+
+      /* ══ RONSEL STUDIO — Hotel Sardinero, Pza. Alonso Martínez, 3, Chamberí ══ */
+      {
+        nombre:   'Crea tu propio perfume artesanal',
+        empresa:  'Ronsel',
+        badge:    'Talleres',
+        cat:      'talleres',
+        zona:     'Chamberí',
+        horario:  '2 sábados al mes · 10:00 y 15:00 · 3h',
+        precio:   '€67 por persona',
+        img:      'https://images.unsplash.com/photo-1547887538-047f0e56df70?w=600&auto=format&fit=crop&q=80',
+        url:      'https://ronselstudio.com/',
+        tiempo:   ['finde', 'semana'],
+        desc:     '"El taller de perfumes más honesto de Madrid." En tres horas dominas la pirámide olfativa, haces una cata a ciegas de materias primas, mezclas tu propia fragancia y te vas con un frasco de 30ml diseñado y etiquetado por ti. Sin reglas impuestas — solo tu olfato y tu identidad.',
+        includes: ['3h de taller con maestro perfumero', 'Cata a ciegas de materias primas', 'Frasco de 30ml personalizado incluido', 'Diseño y etiquetado de tu fragancia'],
+        address:  'Hotel Sardinero, Plaza Alonso Martínez 3, 28010 Madrid (Chamberí)',
+      },
+
+    ];
+
+    /* ── Category / time maps ────────────────────────────────── */
+    const CAT_MAP = {
+      'Música en vivo': 'musica',
+      'Gastronomía':    'gastronomia',
+      'Arte y cultura': 'arte',
+      'Talleres':       'talleres',
+      'Fiestas':        'fiestas',
+      'Deporte':        'deporte',
+      'Brunch':         'brunch',
+    };
+    const TIEMPO_MAP = {
+      'Hoy':         'hoy',
+      'Mañana':      'manana',
+      'Este finde':  'finde',
+      'Esta semana': 'semana',
+    };
+
+    /* ── Current filtered set (for modal lookup) ─────────────── */
+    let currentPlanes = PLANES;
+    let currentModalIdx = 0;
+
+    /* ── Counter & reset btn helpers ─────────────────────────── */
+    function updateCounter(planes) {
+      const el = document.getElementById('planesCount');
+      if (el) el.textContent = `${planes.length} ${planes.length === 1 ? 'plan' : 'planes'} encontrados`;
+    }
+    function updateResetBtn(isFiltered) {
+      const btn = document.getElementById('resetFiltersBtn');
+      if (btn) btn.classList.toggle('visible', isFiltered);
+    }
+
+    /* ── Render planes ───────────────────────────────────────── */
+    function renderPlanes(planes, isFiltered) {
+      currentPlanes = planes;
+      updateCounter(planes);
+      updateResetBtn(!!isFiltered);
+      const track = document.getElementById('ctrack');
+      if (!planes.length) {
+        track.innerHTML = '<p class="planes-empty">No hemos encontrado planes con esos filtros. Prueba otra combinación.</p>';
+        initCarousel();
+        return;
+      }
+      track.innerHTML = planes.map((p, i) => `
+        <div class="rcard" data-idx="${i}" role="button" tabindex="0" aria-label="Ver detalles de ${p.nombre}">
+          <div class="rcard-top">
+            <span class="rcard-cat">${p.empresa}</span>
+            <span class="rcard-zona-badge">${p.zona}</span>
+          </div>
+          <div class="rcard-img">
+            <img src="${p.img}" alt="${p.nombre}" loading="lazy"/>
+          </div>
+          <div class="rcard-body">
+            <div class="rcard-name-row">
+              <span class="rcard-name">${p.nombre}</span>
+              <span class="rcard-price">${p.precio}</span>
+            </div>
+            <div class="rcard-horario">${p.horario}</div>
+            <a class="rcard-reserve" href="${p.url}" target="_blank" rel="noopener noreferrer">Reservar →</a>
+          </div>
+        </div>`).join('');
+
+      track.querySelectorAll('.rcard').forEach(card => {
+        const idx = +card.dataset.idx;
+        card.addEventListener('click', () => openModal(currentPlanes[idx], idx));
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(currentPlanes[idx], idx); } });
+        const reserveBtn = card.querySelector('.rcard-reserve');
+        if (reserveBtn) reserveBtn.addEventListener('click', e => e.stopPropagation());
+      });
+      initCarousel();
+    }
+
+    /* ── Modal ───────────────────────────────────────────────── */
+    function openModal(plan, idx) {
+      if (!plan) return;
+      currentModalIdx = idx !== undefined ? idx : currentPlanes.indexOf(plan);
+
+      document.getElementById('pmImg').src             = plan.img;
+      document.getElementById('pmImg').alt             = plan.nombre;
+      document.getElementById('pmBadge').textContent   = plan.badge;
+      document.getElementById('pmEmpresa').textContent = plan.empresa;
+      document.getElementById('pmTitle').textContent   = plan.nombre;
+      document.getElementById('pmDesc').textContent    = plan.desc || '';
+      document.getElementById('pmAddress').textContent = plan.address || '';
+
+      const chips = document.getElementById('pmChips');
+      chips.innerHTML = [
+        `<span class="pm-chip red">${plan.zona}</span>`,
+        `<span class="pm-chip dark">${plan.horario}</span>`,
+        `<span class="pm-chip">${plan.precio}</span>`,
+      ].join('');
+
+      const ul = document.getElementById('pmIncludesContent');
+      if (plan.includes && plan.includes.length) {
+        ul.innerHTML = plan.includes.map(it => `<li>${it}</li>`).join('');
+        document.getElementById('pmIncludes').style.display = '';
+      } else {
+        document.getElementById('pmIncludes').style.display = 'none';
+      }
+
+      document.getElementById('pmCta').href = plan.url;
+
+      const prev = document.getElementById('pmPrev');
+      const next = document.getElementById('pmNext');
+      if (prev) prev.disabled = currentModalIdx <= 0;
+      if (next) next.disabled = currentModalIdx >= currentPlanes.length - 1;
+
+      document.getElementById('planModal').classList.add('open');
+      document.getElementById('planModal').querySelector('.plan-modal-panel').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('planModal').classList.remove('open');
+      if (!document.getElementById('allPlanesPanel').classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.getElementById('planModalClose').addEventListener('click', closeModal);
+    document.getElementById('planModalOverlay').addEventListener('click', closeModal);
+    document.getElementById('pmPrev').addEventListener('click', () => {
+      if (currentModalIdx > 0) openModal(currentPlanes[currentModalIdx - 1], currentModalIdx - 1);
+    });
+    document.getElementById('pmNext').addEventListener('click', () => {
+      if (currentModalIdx < currentPlanes.length - 1) openModal(currentPlanes[currentModalIdx + 1], currentModalIdx + 1);
+    });
+    document.addEventListener('keydown', e => {
+      const modal    = document.getElementById('planModal');
+      const panel    = document.getElementById('allPlanesPanel');
+      const localesP = document.getElementById('localesPanel');
+      if (modal.classList.contains('open')) {
+        if (e.key === 'Escape')      closeModal();
+        if (e.key === 'ArrowLeft'  && currentModalIdx > 0)                          openModal(currentPlanes[currentModalIdx - 1], currentModalIdx - 1);
+        if (e.key === 'ArrowRight' && currentModalIdx < currentPlanes.length - 1)  openModal(currentPlanes[currentModalIdx + 1], currentModalIdx + 1);
+      } else if (panel.classList.contains('open') && e.key === 'Escape') {
+        closeAllPlanesPanel();
+      } else if (localesP.classList.contains('open') && e.key === 'Escape') {
+        closeLocalesPanel();
+      }
+    });
 
     /* ── Hamburger ───────────────────────────────────────────── */
     const burger    = document.getElementById('burgerBtn');
@@ -1594,41 +3342,57 @@
     });
 
     /* ── Search ──────────────────────────────────────────────── */
-    document.getElementById('searchBtn').addEventListener('click', () => {
-      const day  = document.querySelector('.fpill.active')?.textContent.trim() ?? '';
-      const cats = [...document.querySelectorAll('.fcat.active')].map(c => c.textContent.trim()).join(', ');
-      const zona = document.getElementById('zona').value || 'Toda Madrid';
-      const parts = [day, cats, zona].filter(Boolean);
+    document.getElementById('searchBtn').addEventListener('click', function () {
+      const tiempoPill = document.querySelector('.fpill.active');
+      const tiempoKey  = tiempoPill ? TIEMPO_MAP[tiempoPill.textContent.trim()] : 'semana';
+      const activeCats = [...document.querySelectorAll('.fcat.active')].map(c => CAT_MAP[c.textContent.trim()]).filter(Boolean);
+      const zona       = document.getElementById('zona').value;
 
-      // Update the carousel label to reflect the search
-      const label = document.getElementById('planesLabel');
-      if (label) label.textContent = parts.length ? `✦ Resultados — ${parts.join(' · ')}` : '✦ Destacados hoy';
+      let filtered = PLANES.filter(p => p.tiempo.includes(tiempoKey));
+      if (activeCats.length) filtered = filtered.filter(p => activeCats.includes(p.cat));
+      if (zona) filtered = filtered.filter(p => p.zona === zona);
 
-      // Close the filter panel
+      const tiempoLabel = tiempoPill ? tiempoPill.textContent.trim() : '';
+      const catLabel    = [...document.querySelectorAll('.fcat.active')].map(c => c.textContent.trim()).join(', ');
+      const parts       = [tiempoLabel, catLabel, zona || 'Toda Madrid'].filter(Boolean);
+      const label       = document.getElementById('planesLabel');
+      if (label) label.textContent = `✦ Resultados — ${parts.join(' · ')}`;
+
+      const isFiltered = filtered.length < PLANES.length || activeCats.length > 0 || !!zona;
+      renderPlanes(filtered, isFiltered);
+
       document.getElementById('finderPanel').classList.remove('open');
       document.getElementById('finderBar').classList.remove('open');
+      requestAnimationFrame(() => {
+        const section = document.getElementById('planesSection');
+        const navH = document.querySelector('.navbar-wrap').offsetHeight + 16;
+        const top = section.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
 
-      // Scroll to the plans section
-      document.getElementById('planesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.textContent = '✓ Mostrando resultados';
+      this.disabled = true;
+      setTimeout(() => { this.textContent = 'Buscar planes'; this.disabled = false; }, 1800);
     });
 
     /* ── Carousel ────────────────────────────────────────────── */
-    (function () {
+    let resizeTimer;
+
+    function initCarousel() {
       const track   = document.getElementById('ctrack');
       if (!track) return;
       const dotsEl  = document.getElementById('cdots');
       const prevBtn = document.getElementById('cPrev');
       const nextBtn = document.getElementById('cNext');
-      const cards   = track.querySelectorAll('.pcard');
+      const cards   = track.querySelectorAll('.rcard');
       let idx = 0;
+      let fillEl = null;
 
       function vis() {
         if (window.innerWidth < 600) return 1;
         if (window.innerWidth < 820) return 2;
-        return 4;
+        return 3;
       }
-
-      let fillEl = null;
 
       function buildDots() {
         const pages = Math.ceil(cards.length / vis());
@@ -1637,10 +3401,10 @@
         fillEl = document.createElement('div');
         fillEl.className = 'cscrubber-fill';
         dotsEl.appendChild(fillEl);
-        dotsEl.addEventListener('click', e => {
+        dotsEl.onclick = e => {
           const ratio = e.offsetX / dotsEl.offsetWidth;
           go(Math.floor(ratio * pages));
-        });
+        };
         updateScrubber(pages);
       }
 
@@ -1659,18 +3423,18 @@
 
       function go(n) {
         const v   = vis();
-        const max = Math.ceil(cards.length / v) - 1;
+        const max = Math.max(0, Math.ceil(cards.length / v) - 1);
         idx = Math.max(0, Math.min(n, max));
         const w   = track.parentElement.offsetWidth;
-        const gap = 12;
+        const gap = 16;
         const cw  = (w - gap * (v - 1)) / v;
         track.style.transform = `translateX(-${idx * v * (cw + gap)}px)`;
         updateScrubber();
         updateBtns(max);
       }
 
-      if (prevBtn) prevBtn.addEventListener('click', () => go(idx - 1));
-      if (nextBtn) nextBtn.addEventListener('click', () => go(idx + 1));
+      if (prevBtn) prevBtn.onclick = () => go(idx - 1);
+      if (nextBtn) nextBtn.onclick = () => go(idx + 1);
 
       let tx = 0;
       track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
@@ -1679,15 +3443,14 @@
         if (Math.abs(d) > 48) go(d > 0 ? idx + 1 : idx - 1);
       });
 
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => { idx = 0; buildDots(); go(0); }, 150);
-      });
-
       buildDots();
       go(0);
-    })();
+    }
+
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => initCarousel(), 150);
+    });
 
     /* ── FAQ ─────────────────────────────────────────────────── */
     document.querySelectorAll('.faq-q').forEach(btn => {
@@ -1812,14 +3575,6 @@
       document.body.appendChild(script);
     });
 
-    /* ── Plan cards ──────────────────────────────────────────── */
-    document.querySelectorAll('.pcard').forEach(card => {
-      card.addEventListener('click', function () {
-        const name = this.querySelector('.pcard-name').textContent.trim();
-        showToast('Próximamente: ' + name.slice(0, 42) + '…');
-      });
-    });
-
     /* ── Toast ───────────────────────────────────────────────── */
     let toastTimer;
     function showToast(msg) {
@@ -1834,15 +3589,206 @@
     (function () {
       const navWrap = document.querySelector('.navbar-wrap');
       function updateNav() {
-        if (window.scrollY > 80) {
-          navWrap.classList.add('scrolled');
-        } else {
-          navWrap.classList.remove('scrolled');
-        }
+        if (window.scrollY > 80) navWrap.classList.add('scrolled');
+        else navWrap.classList.remove('scrolled');
       }
       window.addEventListener('scroll', updateNav, { passive: true });
       updateNav();
     })();
+
+    /* ── All Planes Panel ────────────────────────────────────── */
+    let allPlanesActiveCat = '';
+
+    function renderAllPlanesGrid(planes) {
+      const grid  = document.getElementById('allPlanesGrid');
+      const count = document.getElementById('allPlanesCount');
+      currentPlanes = planes;
+      if (count) count.textContent = planes.length;
+      if (!planes.length) {
+        grid.innerHTML = '<p class="all-planes-empty">No hay planes en esta categoría aún. ¡Vuelve pronto!</p>';
+        return;
+      }
+      grid.innerHTML = planes.map((p, i) => `
+        <div class="pcard" data-idx="${i}" role="button" tabindex="0" aria-label="Ver detalles de ${p.nombre}">
+          <div class="pcard-img">
+            <img src="${p.img}" alt="${p.nombre}" loading="lazy"/>
+            <span class="pcard-badge">${p.badge}</span>
+          </div>
+          <div class="pcard-body">
+            <span class="pcard-name">${p.nombre}</span>
+            <span class="pcard-meta">${p.horario} · ${p.zona}</span>
+            <span class="pcard-precio">${p.precio}</span>
+            <span class="pcard-empresa">${p.empresa}</span>
+          </div>
+        </div>`).join('');
+      grid.querySelectorAll('.pcard').forEach(card => {
+        const idx  = +card.dataset.idx;
+        const open = () => openModal(currentPlanes[idx], idx);
+        card.addEventListener('click', open);
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+      });
+    }
+
+    function openAllPlanesPanel() {
+      allPlanesActiveCat = '';
+      document.querySelectorAll('.apc-btn').forEach(b => b.classList.toggle('active', b.dataset.apcat === ''));
+      renderAllPlanesGrid(PLANES);
+      document.getElementById('allPlanesPanel').classList.add('open');
+      document.getElementById('allPlanesPanel').querySelector('.all-planes-body').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAllPlanesPanel() {
+      document.getElementById('allPlanesPanel').classList.remove('open');
+      if (!document.getElementById('planModal').classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.getElementById('allPlanesClose').addEventListener('click', closeAllPlanesPanel);
+
+    document.querySelectorAll('.apc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        allPlanesActiveCat = btn.dataset.apcat;
+        document.querySelectorAll('.apc-btn').forEach(b => b.classList.toggle('active', b === btn));
+        const filtered = allPlanesActiveCat ? PLANES.filter(p => p.cat === allPlanesActiveCat) : PLANES;
+        renderAllPlanesGrid(filtered);
+        document.getElementById('allPlanesPanel').querySelector('.all-planes-body').scrollTop = 0;
+      });
+    });
+
+    /* ── Locales Panel ───────────────────────────────────────── */
+    function buildEmpresas() {
+      const map = new Map();
+      PLANES.forEach(p => {
+        if (!map.has(p.empresa)) {
+          map.set(p.empresa, { nombre: p.empresa, img: p.empresaImg || p.img, logo: !!p.empresaLogo, bg: p.empresaBg || null, imgFilter: p.empresaImgFilter || null, url: p.url, zona: p.zona, cats: [p.cat], planes: [p] });
+        } else {
+          const e = map.get(p.empresa);
+          if (!e.cats.includes(p.cat)) e.cats.push(p.cat);
+          e.planes.push(p);
+        }
+      });
+      return [...map.values()].map(e => {
+        const c = {};
+        e.planes.forEach(p => { c[p.badge] = (c[p.badge] || 0) + 1; });
+        e.badge = Object.keys(c).reduce((a, b) => c[a] >= c[b] ? a : b);
+        return e;
+      });
+    }
+
+    const EMPRESAS = buildEmpresas();
+    let localesActiveCat = '';
+
+    function renderLocalesGrid(empresas) {
+      const grid  = document.getElementById('localesGrid');
+      const count = document.getElementById('localesCount');
+      if (count) count.textContent = empresas.length;
+      if (!empresas.length) {
+        grid.innerHTML = '<p class="all-planes-empty">No hay locales en esta categoría.</p>';
+        return;
+      }
+      grid.innerHTML = empresas.map(e => {
+        const n = e.planes.length;
+        const label = n === 1 ? '1 plan disponible' : `${n} planes disponibles`;
+        return `
+          <a class="empresa-card${e.logo ? ' empresa-card--logo' : ''}" href="${e.url}" target="_blank" rel="noopener noreferrer" aria-label="${e.nombre}">
+            <div class="empresa-card-img"${e.bg ? ` style="background:${e.bg}"` : ''}>
+              <img src="${e.img}" alt="${e.nombre}" loading="lazy"${e.imgFilter ? ` style="filter:${e.imgFilter}"` : ''}/>
+              <span class="empresa-card-badge">${e.badge}</span>
+            </div>
+            <div class="empresa-card-body">
+              <span class="empresa-card-name">${e.nombre}</span>
+              <span class="empresa-card-meta">${e.zona}</span>
+              <span class="empresa-card-planes">${label}</span>
+            </div>
+          </a>`;
+      }).join('');
+    }
+
+    function openLocalesPanel() {
+      localesActiveCat = '';
+      document.querySelectorAll('.apc-lbtn').forEach(b => b.classList.toggle('active', b.dataset.lcat === ''));
+      renderLocalesGrid(EMPRESAS);
+      document.getElementById('localesPanel').classList.add('open');
+      document.getElementById('localesPanel').querySelector('.all-planes-body').scrollTop = 0;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLocalesPanel() {
+      document.getElementById('localesPanel').classList.remove('open');
+      if (!document.getElementById('planModal').classList.contains('open')) {
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.getElementById('localesPanelClose').addEventListener('click', closeLocalesPanel);
+
+    document.querySelectorAll('.apc-lbtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        localesActiveCat = btn.dataset.lcat;
+        document.querySelectorAll('.apc-lbtn').forEach(b => b.classList.toggle('active', b === btn));
+        const filtered = localesActiveCat ? EMPRESAS.filter(e => e.cats.includes(localesActiveCat)) : EMPRESAS;
+        renderLocalesGrid(filtered);
+        document.getElementById('localesPanel').querySelector('.all-planes-body').scrollTop = 0;
+      });
+    });
+
+    /* ── Explorar CTAs ───────────────────────────────────────── */
+    document.getElementById('explTabPlanes').addEventListener('click', openAllPlanesPanel);
+    document.getElementById('explTabLocales').addEventListener('click', openLocalesPanel);
+
+    /* ── Reset filters button ────────────────────────────────── */
+    document.getElementById('resetFiltersBtn').addEventListener('click', function () {
+      const label = document.getElementById('planesLabel');
+      if (label) label.textContent = '✦ Esta semana en Madrid';
+      // Reset pills to "Esta semana"
+      document.querySelectorAll('.fpill').forEach(p => { p.classList.remove('active'); p.setAttribute('aria-selected', 'false'); });
+      const semanaPill = document.querySelector('.fpill[data-tab="semana"]');
+      if (semanaPill) { semanaPill.classList.add('active'); semanaPill.setAttribute('aria-selected', 'true'); }
+      // Reset category pills
+      document.querySelectorAll('.fcat.active').forEach(c => c.classList.remove('active'));
+      // Reset zona
+      document.getElementById('zona').value = '';
+      renderPlanes(PLANES.filter(p => p.tiempo.includes('semana')), false);
+    });
+
+    /* ── Footer category quick-filters ──────────────────────── */
+    const CAT_LABELS = {
+      talleres:    'Talleres',
+      gastronomia: 'Gastronomía',
+      arte:        'Arte y cultura',
+      brunch:      'Brunch',
+    };
+    document.querySelectorAll('[data-filter-cat]').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const cat      = this.dataset.filterCat;
+        const filtered = PLANES.filter(p => p.cat === cat);
+        const label    = document.getElementById('planesLabel');
+        if (label) label.textContent = `✦ ${CAT_LABELS[cat] || cat}`;
+        renderPlanes(filtered, true);
+        document.getElementById('planesSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    /* ── Privacy modal ───────────────────────────────────────── */
+    function openPrivModal() {
+      document.getElementById('privModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePrivModal() {
+      document.getElementById('privModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('privModalClose').addEventListener('click', closePrivModal);
+    document.getElementById('privModalOverlay').addEventListener('click', closePrivModal);
+    document.querySelectorAll('.priv-link').forEach(a => {
+      a.addEventListener('click', e => { e.preventDefault(); openPrivModal(); });
+    });
+
+    /* ── Initial render: Esta semana ─────────────────────────── */
+    renderPlanes(PLANES.filter(p => p.tiempo.includes('semana')), false);
   </script>
 </body>
 </html>
